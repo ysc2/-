@@ -1,0 +1,159 @@
+var browser = getBrowserInfo();
+var platform = navigator.platform.toLowerCase();
+if (platform.indexOf('win') !== -1 || platform.indexOf('linux') !== -1 || platform.indexOf('mac') !== -1) {
+    console.log('电脑端')
+} else {
+    console.log('手机端')
+}
+
+// var url_pre = 'http://127.0.0.1:5000'
+// var url_pre = 'http://47.107.148.244/api/v1';
+var url_pre = '/api/v1';
+if (browser.name === 'ie') {
+    var version = parseInt(browser.version);
+    // if (version === 9) url_pre = '/ie9';
+    if (version < 9) location.href = '/error/lowversion.html';
+}
+
+var device_platform = 'pc';
+if (/(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent)) {  //判断iPhone|iPad|iPod|iOS
+    device_platform = 'ios';
+} else if (/(Android)/i.test(navigator.userAgent)) {   //判断Android
+    device_platform = 'android';
+}
+
+var cartSaveTime = 3600 * 24 * 30;
+var userSaveTime = 3600 * 24 * 365;
+var token = getCookie('token');
+var realname = getCookie('realname');
+var cur_url = getCookie('cur_url');
+var is_fresh = cur_url === location.href;
+var pp_bill = 1;
+setCookie('cur_url', location.href);
+
+$.ajax({
+    url: url_pre + '/bill/info/bill5',
+    type: 'get',
+    success: function(response) {
+        pp_bill = response.tax_rate
+    }
+});
+
+var _hmt = _hmt || [];
+(function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?f4c341a8eb5c48fd6ba3e37c0e09677f";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+})();
+
+
+function device_width() {
+    return document.body.clientWidth;
+}
+
+function is_mobile_device(mobile_width=1024) {
+    return device_width() < mobile_width;
+}
+
+function get_qq_service_link(qq) {
+    if (device_platform == 'android') {
+        return 'mqqwpa://im/chat?chat_type=wpa&uin=' + qq + '&version=1&src_type=web';
+    } else if (device_platform == 'ios') {
+        return 'mqq://im/chat?chat_type=wpa&uin=' + qq + '&version=1&src_type=web';
+    } else {
+        return 'tencent://message/?uin=' + qq + '&Site=service&Menu=yes';
+    }
+}
+
+// a标签判断是否登录
+function is_login_link(event) {
+    var flag = false;
+
+    $.ajax({
+        url: url_pre + '/login',
+        type: 'get',
+        async: false,
+        beforeSend: function(request) {
+            request.setRequestHeader('Authorization', 'JWT ' + token);
+        },
+        success: function() {
+            flag = true;
+        },
+        error: function(error) {
+            if (error.status === 401) {
+                event.href = '/login.html?next=' + encodeURI(event.href);
+                flag = true;
+            }
+        }
+    });
+
+    return flag
+}
+
+/**
+* 上传图片
+* @param nodeObj  form表单节点
+* @param success 成功回调
+* @param error 失败回调
+*/
+function uploadImage(nodeObj, success, error) {
+    var options = {
+        url: url_pre + '/images',
+        type: 'post',
+        success: success
+    };
+    if (error) options['error'] = error;
+
+    $(nodeObj).ajaxForm(options);
+    $(nodeObj).submit();
+}
+
+// 设置商品类别悬浮事件
+function setCatHover() {
+    // 一级类目悬浮事件
+    $(".sub_menu li").hover(function() {
+        var posY = ($(this).index() + 1) * 34 + 4;
+        var level2 = $(this).find(".level2");
+        var level2H = level2.outerHeight();
+
+        level2.css('height', level2.css('height'));
+        if (posY < level2H) {
+            level2.css("top", -4);
+        } else {
+            level2.css("bottom", -4);
+        }
+    })
+}
+
+$(function() {
+    // 页面滚动事件
+    $(document).scroll(function() {
+        var display = $(this).scrollTop() > 0 ? 'block' : 'none';
+        $('.top').css('display', display);
+    });
+
+    // 回到顶部
+    $('.top').click(function() {
+        // $('html,body').animate({'scrollTop': 0}, $(document).scrollTop() / 5);
+        $('html,body').animate({'scrollTop': 0}, 50);
+    });
+
+    setCatHover();
+
+    $('.search_con .input_text').focus(function() {
+        $(this).closest('.search_con').addClass('focus')
+    })
+
+    $('.search_con .input_text').blur(function() {
+        $(this).closest('.search_con').removeClass('focus')
+    })
+});
+
+
+
+
+
+
+
+

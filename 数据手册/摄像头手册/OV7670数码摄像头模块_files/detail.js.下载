@@ -1,0 +1,240 @@
+var vm = new Vue({
+    el: '#app',
+    data: {
+        goods_num: 1,
+        goods_id: 0,
+        sale_price: 0,
+        orig_price: 0,
+        one_sale_price: 0,
+        is_agent: false,
+        qq_service: '',
+        cart_count: 0,
+        change_cart: false,
+
+        prices: [],
+        default_prices: [],
+
+        choose_count: 0,
+        choose_total: 0,
+        choose_list: [],
+        choose_price: [],
+        is_like: false,
+        show_tax_list: [],
+        show_tax: {},
+        tax_type: 'default',
+        tax_map: {},
+        goods_info: {}
+    },
+    mounted: function() {
+        this.goods_id = $("#goods_id").val();
+        this.get_goods_info();
+        this.check_like();
+        this.get_show_tax_list();
+    },
+    beforeUpdate: function() {
+        this.qq_service = this.$refs.header_nav.qq_service_link();
+        this.cart_count = this.change_cart ? this.cart_count : this.$refs.header_nav.cart_count;
+    },
+    watch: {
+        goods_num: function(newVal) {
+            this.goods_num = parseInt(this.goods_num);
+            if (!this.goods_num || this.goods_num < 1) {
+                this.goods_num = 1;
+            }
+
+            if (this.prices.length > 0) {
+                for (var i=0; i < this.prices.length; i++) {
+                    if (i >= this.prices.length - 1) {
+                        this.sale_price = this.prices[this.prices.length - 1].price;
+                        this.default_sale_price = this.default_prices[this.default_prices.length - 1].price;
+                        break;
+                    }
+                    if (this.goods_num >= this.prices[i].num && this.goods_num < this.prices[i+1].num) {
+                        this.sale_price = this.prices[i].price;
+                        this.default_sale_price = this.default_prices[i].price;
+                        break;
+                    }
+                }
+            }
+        }
+    },
+    methods: {
+        // 判断该是否收藏该商品
+        check_like: function() {
+            var self = this;
+
+            axios.put(url_pre + '/goods/like', {
+                'sku_id': self.goods_id,
+            }).then(function(response) {
+                self.is_like = response.data;
+            }).catch(function(error) {
+                self.is_like = false;
+            })
+        },
+        // 收藏、取消收藏
+        do_like: function() {
+            var self = this;
+
+            if (!this.is_like) {
+                ajaxReturn = axios.post(url_pre + '/goods/like', {
+                    'sku_id': this.goods_id,
+                })
+            } else {
+                ajaxReturn = axios.delete(url_pre + '/goods/like', {
+                    data: {
+                        'sku_id': this.goods_id,
+                    }
+                })
+            }
+
+            ajaxReturn.then(function(response) {
+                self.is_like = !self.is_like;
+            }).catch(function(error) {
+                if (error && error.response.status === 401) {
+                    location.href = '/login.html?next=' + encodeURI(location.href);
+                }
+            })
+        },
+        // 税后商品价格
+        tax_price: function(price) {
+            var ret_price = price;
+            if (this.prices.length) {
+                var tax_rate = this.tax_map[this.show_tax.bill_code] || 1
+                ret_price = Number((Math.round(Math.round(tax_rate * 100) * Math.round(ret_price * 100) / 100) / 100).toFixed(2))
+            }
+            ret_price = '¥' + ret_price.toFixed(2).replace(/(\d+)\.(\d+)/, '$1<i class="price_point">.$2</i>')
+            return ret_price;
+        },
+        // 修改商品数量
+        up: function() {
+            this.goods_num++;
+        },
+        down: function() {
+            this.goods_num > 1 ? this.goods_num-- : 1;
+        },
+        //获取商品信息
+        get_goods_info: function() {
+            var self = this;
+
+            axios.get(url_pre + '/goods/' + this.goods_id).then(function(response) {
+                var data = response.data;
+
+                self.default_sale_price = self.one_sale_price = self.sale_price = data.sale_price;
+                self.choose_total = self.one_sale_price * pp_bill;
+                self.orig_price = data.orig_price;
+                self.prices = data.prices;
+                self.default_prices = JSON.parse(JSON.stringify(data.prices));
+                self.goods_info = data.goods_info
+            })
+        },
+        //添加购物车
+        add_cart: function() {
+            var self = this;
+
+            axios.post(url_pre + '/cart', {
+                cart: getCookie('goods_cart'),
+                sku_id: this.goods_id,
+                count: this.goods_num,
+            }).then(function(response) {
+                setCookie('goods_cart', response.data.cart, cartSaveTime);
+                self.$refs.header_nav.select_cart();
+                self.cart_count += self.goods_num;
+                self.change_cart = true;
+                self.$refs.msg.info('恭喜您！您选择的商品已加入 <a class="blue_link" href="/cart.html">购物车</a>', 3);
+            }).catch(function(error) {
+                if (error.response.status === 400) {
+                    self.$refs.msg.alert(error.response.data.message.msg);
+                } else if (error.response.status === 401) {
+                    location.href = '/login.html?next=' + encodeURI(location.href);
+                }
+            })
+        },
+        // 立即购买
+        buy_now: function() {
+            var self = this;
+
+            axios.post(url_pre + '/buynow', {
+                sku_id: this.goods_id,
+                count: this.goods_num,
+            }).then(function(response) {
+                location.href = '/place_order.html';
+            }).catch(function(error) {
+                if (error.response.status === 400) {
+                    self.$refs.msg.alert(error.response.data.message.msg);
+                } else if (error.response.status === 401) {
+                    location.href = '/login.html?next=' + encodeURI(location.href);
+                }
+            })
+        },
+        // 选择组合商品
+        choose_rel_goods: function(goods_id, goods_price) {
+            var self = this;
+            this.choose_count = 0;
+            this.choose_total = this.one_sale_price * pp_bill;
+            var goods_index = this.choose_list.indexOf(goods_id);
+            var price_index = this.choose_price.indexOf(goods_price);
+            if (goods_index == -1) {
+                this.choose_list.push(goods_id)
+                this.choose_price.push(goods_price)
+            } else {
+                this.choose_list.splice(goods_index, 1);
+                this.choose_price.splice(price_index, 1);
+            }
+            this.choose_list.forEach(function(value,index,array) {
+                self.choose_count++;
+            });
+            this.choose_price.forEach(function(value,index,array) {
+                self.choose_total += value;
+            });
+        },
+        // 关联商品勾选框样式
+        rel_goods_style: function(goods_id) {
+            return this.choose_list.indexOf(goods_id) > -1 ? 'choice' : '';
+        },
+        // 立即购买（关联商品组合下单）
+        rel_buy_now: function() {
+            var self = this;
+
+            var cho_goods = this.goods_id;
+            for (var i = 0; i < this.choose_list.length; i++) {
+                cho_goods = cho_goods + ',' + this.choose_list[i];
+            }
+            
+            axios.post(url_pre + '/relbuynow', {
+                cho_goods: cho_goods
+            }).then(function(response) {
+                location.href = '/place_order.html';
+            }).catch(function(error) {
+                if (error.response.status === 400) {
+                    self.$refs.msg.alert(error.response.data.message.msg);
+                } else if (error.response.status === 401) {
+                    location.href = '/login.html?next=' + encodeURI(location.href);
+                }
+            })
+        },
+        // 现在选择的税率
+        get_choose_tax_tips: function() {
+            return this.show_tax ? (this.show_tax.tax_name || '不含税') : '不含税';
+        },
+        // 是否展示价格参考
+        show_price_tax_box: function() {
+            return this.show_tax_list.length > 0
+        },
+        // 获取用户展示的税率
+        get_show_tax_list: function() {
+            var url = url_pre + '/agent/tax/list' 
+            var self = this
+
+            axios.get(url, {
+                params: {
+                    goods_id: this.goods_id
+                }
+            }).then(function(response) {
+                self.tax_type = response.data.tax_type;
+                self.tax_map = response.data.tax_map;
+                self.show_tax_list = response.data.tax_list
+                self.show_tax = self.show_tax_list.length == 0 ? {} : self.show_tax_list[0]
+            })
+        }
+    },
+});

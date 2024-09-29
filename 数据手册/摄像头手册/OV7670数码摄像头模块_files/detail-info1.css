@@ -1,0 +1,2016 @@
+﻿Flexible/****************************************************************************************/
+.lcd-oled-wiki{
+    position: relative;
+}
+.lcd-oled-wiki img {width: 960px;}
+.lcd-oled-wiki > div{
+    position: relative;
+    font-size: 22px;
+    top: 66px;
+    text-align: left;
+    width: 960px;
+}
+.lcd-oled-wiki > div > div{
+    display: inline-block;
+    margin-left: 155px;
+}
+.lcd-wiki-link a{
+    color:#FFF;
+    background:red;
+    padding:5px;
+    border-radius: 4px;
+}
+#DIVn_22 {
+    color: rgb(102, 102, 102);
+    height: 1241px;
+    text-decoration: none solid rgb(102, 102, 102);
+    width: 1476px;
+    column-rule-color: rgb(102, 102, 102);
+    perspective-origin: 738px 620.5px;
+    transform-origin: 738px 620.5px;
+    caret-color: rgb(102, 102, 102);
+    border: 0px none rgb(102, 102, 102);
+    font: normal normal 400 12px / normal "思源黑体", "Microsoft YaHei";
+    outline: rgb(102, 102, 102) none 0px;
+}/*#DIVn_22*/
+
+#DIVn_1 {
+    color: rgb(102, 102, 102);
+    height: 154px;
+    text-decoration: none solid rgb(102, 102, 102);
+    width: 1200px;
+    column-rule-color: rgb(102, 102, 102);
+    perspective-origin: 600px 77px;
+    transform-origin: 600px 77px;
+    caret-color: rgb(102, 102, 102);
+    border: 0px none rgb(102, 102, 102);
+    font: normal normal 400 12px / normal "思源黑体", "Microsoft YaHei";
+    margin: 0px 138px;
+    outline: rgb(102, 102, 102) none 0px;
+}/*#DIVn_1*/
+
+#ULn_2 {
+    color: rgb(102, 102, 102);
+    height: 35px;
+    text-decoration: none solid rgb(102, 102, 102);
+    width: 1200px;
+    column-rule-color: rgb(102, 102, 102);
+    perspective-origin: 600px 18px;
+    transform-origin: 600px 18px;
+    caret-color: rgb(102, 102, 102);
+    border-top: 0px none rgb(102, 102, 102);
+    border-right: 0px none rgb(102, 102, 102);
+    border-bottom: 1px solid rgb(40, 135, 199);
+    border-left: 0px none rgb(102, 102, 102);
+    font: normal normal 400 12px / normal "思源黑体", "Microsoft YaHei";
+    list-style: none outside none;
+    margin: 0px;
+    outline: rgb(102, 102, 102) none 0px;
+    padding: 0px;
+}/*#ULn_2*/
+
+#LIn_3 {
+    bottom: 1px;
+    color: rgb(51, 51, 51);
+    cursor: pointer;
+    float: left;
+    height: 35px;
+    left: 0px;
+    position: relative;
+    right: 0px;
+    text-decoration: none solid rgb(51, 51, 51);
+    top: -1px;
+    width: 56px;
+    column-rule-color: rgb(51, 51, 51);
+    perspective-origin: 59px 18.5px;
+    transform-origin: 59px 18.5px;
+    caret-color: rgb(51, 51, 51);
+    background: rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box border-box;
+    border-top: 2px solid rgb(40, 135, 199);
+    border-right: 1px solid rgb(40, 135, 199);
+    border-bottom: 0px none rgb(51, 51, 51);
+    border-left: 1px solid rgb(40, 135, 199);
+    font: normal normal 400 14px / 34px "思源黑体", "Microsoft YaHei";
+    list-style: none outside none;
+    outline: rgb(51, 51, 51) none 0px;
+    padding: 0px 30px;
+}/*#LIn_3*/
+
+#LIn_4 {
+    color: rgb(51, 51, 51);
+    cursor: pointer;
+    float: left;
+    height: 34px;
+    text-decoration: none solid rgb(51, 51, 51);
+    width: 56px;
+    column-rule-color: rgb(51, 51, 51);
+    perspective-origin: 59px 17.5px;
+    transform-origin: 59px 17.5px;
+    caret-color: rgb(51, 51, 51);
+    background: rgb(250, 248, 248) none repeat scroll 0% 0% / auto padding-box border-box;
+    border-top: 1px solid rgb(232, 232, 232);
+    border-right: 1px solid rgb(232, 232, 232);
+    border-bottom: 0px none rgb(51, 51, 51);
+    border-left: 1px solid rgb(232, 232, 232);
+    font: normal normal 400 14px / 34px "思源黑体", "Microsoft YaHei";
+    list-style: none outside none;
+    outline: rgb(51, 51, 51) none 0px;
+    padding: 0px 30px;
+}/*#LIn_4*/
+
+#DIVn_5 {
+    color: rgb(102, 102, 102);
+    height: 93px;
+    text-decoration: none solid rgb(102, 102, 102);
+    width: 1200px;
+    column-rule-color: rgb(102, 102, 102);
+    perspective-origin: 600px 59px;
+    transform-origin: 600px 59px;
+    caret-color: rgb(102, 102, 102);
+    border: 0px none rgb(102, 102, 102);
+    font: normal normal 400 12px / normal "思源黑体", "Microsoft YaHei";
+    outline: rgb(102, 102, 102) none 0px;
+    padding: 25px 0px 0px;
+}/*#DIVn_5*/
+
+#DIVn_6 {
+    color: rgb(102, 102, 102);
+    height: 83px;
+    text-decoration: none solid rgb(102, 102, 102);
+    width: 1200px;
+    column-rule-color: rgb(102, 102, 102);
+    perspective-origin: 600px 41.5px;
+    transform-origin: 600px 41.5px;
+    caret-color: rgb(102, 102, 102);
+    border: 0px none rgb(102, 102, 102);
+    font: normal normal 400 12px / normal "思源黑体", "Microsoft YaHei";
+    margin: 10px 0px 0px;
+    outline: rgb(102, 102, 102) none 0px;
+}/*#DIVn_6*/
+
+#DIVn_7 {
+    color: rgb(102, 102, 102);
+    height: 52px;
+    text-decoration: none solid rgb(102, 102, 102);
+    width: 1200px;
+    column-rule-color: rgb(102, 102, 102);
+    perspective-origin: 600px 36.5px;
+    transform-origin: 600px 36.5px;
+    caret-color: rgb(102, 102, 102);
+    border-top: 0px none rgb(102, 102, 102);
+    border-right: 0px none rgb(102, 102, 102);
+    border-bottom: 1px solid rgb(237, 237, 237);
+    border-left: 0px none rgb(102, 102, 102);
+    font: normal normal 400 12px / normal "思源黑体", "Microsoft YaHei";
+    outline: rgb(102, 102, 102) none 0px;
+    padding: 10px 0px;
+}/*#DIVn_7*/
+
+#ULn_8 {
+    color: rgb(102, 102, 102);
+    height: 52px;
+    text-decoration: none solid rgb(102, 102, 102);
+    width: 1200px;
+    column-rule-color: rgb(102, 102, 102);
+    perspective-origin: 600px 26px;
+    transform-origin: 600px 26px;
+    caret-color: rgb(102, 102, 102);
+    border: 0px none rgb(102, 102, 102);
+    font: normal normal 400 12px / normal "思源黑体", "Microsoft YaHei";
+    list-style: none outside none;
+    margin: 0px;
+    outline: rgb(102, 102, 102) none 0px;
+    padding: 0px;
+}/*#ULn_8*/
+
+#LIn_9, #LIn_10, #LIn_12, #LIn_14 {
+    color: rgb(102, 102, 102);
+    float: left;
+    height: 26px;
+    text-decoration: none solid rgb(102, 102, 102);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 240px;
+    column-rule-color: rgb(102, 102, 102);
+    perspective-origin: 150px 13px;
+    transform-origin: 150px 13px;
+    caret-color: rgb(102, 102, 102);
+    border: 0px none rgb(102, 102, 102);
+    font: normal normal 400 12px / 26.4px "思源黑体", "Microsoft YaHei";
+    list-style: none outside none;
+    outline: rgb(102, 102, 102) none 0px;
+    overflow: hidden;
+    padding: 0px 0px 0px 60px;
+}/*#LIn_9, #LIn_10, #LIn_12, #LIn_14*/
+
+#LIn_11, #LIn_13 {
+    color: rgb(102, 102, 102);
+    float: left;
+    height: 26px;
+    text-decoration: none solid rgb(102, 102, 102);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 240px;
+    column-rule-color: rgb(102, 102, 102);
+    perspective-origin: 150px 13px;
+    transform-origin: 150px 13px;
+    caret-color: rgb(102, 102, 102);
+    border: 0px none rgb(102, 102, 102);
+    font: normal normal 400 12px / 26.4px "思源黑体", "Microsoft YaHei";
+    list-style: none outside none;
+    outline: rgb(102, 102, 102) none 0px;
+    overflow: hidden;
+    padding: 0px 0px 0px 60px;
+}/*#LIn_11, #LIn_13*/
+
+#DIVn_15 {
+    color: rgb(102, 102, 102);
+    height: 0px;
+    text-decoration: none solid rgb(102, 102, 102);
+    width: 1200px;
+    column-rule-color: rgb(102, 102, 102);
+    perspective-origin: 600px 0px;
+    transform-origin: 600px 0px;
+    caret-color: rgb(102, 102, 102);
+    border: 0px none rgb(102, 102, 102);
+    font: normal normal 400 12px / normal "思源黑体", "Microsoft YaHei";
+    margin: 10px 0px 0px;
+    outline: rgb(102, 102, 102) none 0px;
+}/*#DIVn_15*/
+
+#DIVn_16 {
+    color: rgb(102, 102, 102);
+    height: 0px;
+    text-decoration: none solid rgb(102, 102, 102);
+    width: 1200px;
+    column-rule-color: rgb(102, 102, 102);
+    perspective-origin: 600px 0px;
+    transform-origin: 600px 0px;
+    caret-color: rgb(102, 102, 102);
+    border: 0px none rgb(102, 102, 102);
+    font: normal normal 400 12px / normal "思源黑体", "Microsoft YaHei";
+    outline: rgb(102, 102, 102) none 0px;
+}/*#DIVn_16*/
+
+#DIVn_17 {
+    color: rgb(102, 102, 102);
+    display: none;
+    text-decoration: none solid rgb(102, 102, 102);
+    column-rule-color: rgb(102, 102, 102);
+    caret-color: rgb(102, 102, 102);
+    border: 0px none rgb(102, 102, 102);
+    font: normal normal 400 12px / normal "思源黑体", "Microsoft YaHei";
+    outline: rgb(102, 102, 102) none 0px;
+    padding: 25px 0px 0px;
+}/*#DIVn_17*/
+
+#DIVn_18 {
+    color: rgb(102, 102, 102);
+    text-decoration: none solid rgb(102, 102, 102);
+    column-rule-color: rgb(102, 102, 102);
+    caret-color: rgb(102, 102, 102);
+    border: 0px none rgb(102, 102, 102);
+    font: normal normal 400 12px / normal "思源黑体", "Microsoft YaHei";
+    margin: 10px 0px 0px;
+    outline: rgb(102, 102, 102) none 0px;
+}/*#DIVn_18*/
+
+#DIVn_19 {
+    color: rgb(102, 102, 102);
+    text-decoration: none solid rgb(102, 102, 102);
+    column-rule-color: rgb(102, 102, 102);
+    caret-color: rgb(102, 102, 102);
+    background: rgb(247, 247, 247) none repeat scroll 0% 0% / auto padding-box border-box;
+    border: 1px solid rgb(238, 238, 238);
+    font: normal normal 400 12px / normal "思源黑体", "Microsoft YaHei";
+    outline: rgb(102, 102, 102) none 0px;
+    padding: 10px;
+}/*#DIVn_19*/
+
+
+#H3n_20 {
+    color: rgb(102, 102, 102);
+    text-decoration: none solid rgb(102, 102, 102);
+    column-rule-color: rgb(102, 102, 102);
+    caret-color: rgb(102, 102, 102);
+    border: 0px none rgb(102, 102, 102);
+    font: normal normal 700 normal 14px / normal "思源黑体", "Microsoft YaHei";
+    margin: 0px;
+    outline: rgb(102, 102, 102) none 0px;
+}/*#H3n_20*/
+
+#DIVn_21 {
+    color: rgb(102, 102, 102);
+    text-decoration: none solid rgb(102, 102, 102);
+    column-rule-color: rgb(102, 102, 102);
+    caret-color: rgb(102, 102, 102);
+    border: 0px none rgb(102, 102, 102);
+    font: normal normal 400 12px / normal "思源黑体", "Microsoft YaHei";
+    outline: rgb(102, 102, 102) none 0px;
+    padding: 10px;
+}/*#DIVn_21*/
+
+
+#DIVn1_14 {
+    color: rgb(51, 51, 51);
+    /*height: 16261.9px;*/
+    text-decoration: none solid rgb(51, 51, 51);
+    text-size-adjust: 100%;
+    /*width: 1803.75px;*/
+    column-rule-color: rgb(51, 51, 51);
+    perspective-origin: 901.875px 8130.96px;
+    transform-origin: 901.875px 8130.96px;
+    caret-color: rgb(51, 51, 51);
+    border: 0px none rgb(51, 51, 51);
+    font: normal normal 400 15px / 22.5px "思源黑体", "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei", "Hiragino Sans GB", "Heiti SC", "WenQuanYi Micro Hei", sans-serif;
+    outline: rgb(51, 51, 51) none 0px;
+}/*#DIVn1_14*/
+
+#DIVn1_15 {
+    bottom: 0px;
+    color: rgb(51, 51, 51);
+    /*height: 942.109px;*/
+    left: 0px;
+    /*min-width: 1226px;*/
+    position: relative;
+    right: 0px;
+    text-align: left;
+    text-decoration: none solid rgb(51, 51, 51);
+    text-size-adjust: 100%;
+    top: 0px;
+    /*width: 1803.75px;*/
+    column-rule-color: rgb(51, 51, 51);
+    perspective-origin: 901.875px 471.055px;
+    transform-origin: 901.875px 471.055px;
+    caret-color: rgb(51, 51, 51);
+    /*background: rgba(0, 0, 0, 0) linear-gradient(rgb(230, 225, 255), rgb(228, 227, 255), rgb(227, 228, 255), rgb(225, 230, 255), rgb(224, 232, 255)) repeat scroll 0% 0% / auto padding-box border-box;*/
+    border: 0px none rgb(51, 51, 51);
+    font: normal normal 400 15px / 22.5px "思源黑体", "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei", "Hiragino Sans GB", "Heiti SC", "WenQuanYi Micro Hei", sans-serif;
+    margin: -1px 0px 0px;
+    outline: rgb(51, 51, 51) none 0px;
+    overflow: hidden;
+}/*#DIVn1_15*/
+
+#DIVn1_16 {
+    color: rgb(51, 51, 51);
+    /*height: 942.109px;*/
+    text-align: left;
+    text-decoration: none solid rgb(51, 51, 51);
+    text-size-adjust: 100%;
+    /*width: 879.434px;*/
+    column-rule-color: rgb(51, 51, 51);
+    perspective-origin: 439.707px 471.055px;
+    transform-origin: 439.717px 471.055px;
+    caret-color: rgb(51, 51, 51);
+    border: 0px none rgb(51, 51, 51);
+    font: normal normal 400 15px / 22.5px "思源黑体", "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei", "Hiragino Sans GB", "Heiti SC", "WenQuanYi Micro Hei", sans-serif;
+    /*margin: 0px 462.168px 0px 462.148px;*/
+    outline: rgb(51, 51, 51) none 0px;
+}/*#DIVn1_16*/
+
+#DIV_n1, .DIV_n1 {
+    color: rgb(51, 51, 51);
+    /*height: 850.508px;*/
+    text-align: left;
+    text-decoration: none solid rgb(51, 51, 51);
+    text-size-adjust: 100%;
+    width: 1000px;
+    /*padding-left: 88px;*/
+    column-rule-color: rgb(51, 51, 51);
+    perspective-origin: 439.707px 460.488px;
+    transform-origin: 439.717px 460.488px;
+    caret-color: rgb(51, 51, 51);
+    border: 0px none rgb(51, 51, 51);
+    font: normal normal 400 15px / 22.5px "思源黑体", "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei", "Hiragino Sans GB", "Heiti SC", "WenQuanYi Micro Hei", sans-serif;
+    outline: rgb(51, 51, 51) none 0px;
+    /*padding: 70.4688px 0px 0px;*/
+}
+
+#DIV_n1.D_red_bg, .DIV_n1.D_red_bg{
+	color: #ff2121;
+	border: solid 1px;
+    display: inline-block;
+    padding: 0.2em 0.5em;
+	width: auto;
+}
+
+#UL_n1{
+    color: rgb(51, 51, 51);
+    /*height: 90.8398px;*/
+    text-align: left;
+    text-decoration: none solid rgb(51, 51, 51);
+    text-size-adjust: 100%;
+    /*width: 811.543px;*/
+    column-rule-color: rgb(51, 51, 51);
+    perspective-origin: 405.762px 45.4102px;
+    transform-origin: 405.771px 45.4199px;
+    caret-color: rgb(51, 51, 51);
+    border: 0px none rgb(51, 51, 51);
+    font: normal normal 400 15px / 22.5px "思源黑体", "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei", "Hiragino Sans GB", "Heiti SC", "WenQuanYi Micro Hei", sans-serif;    
+	margin: 0px;
+    outline: rgb(51, 51, 51) none 0px;
+    padding: 5px;
+}
+
+#UL_n1 li{
+	color: rgb(51, 51, 51);
+	/*float: left;*/
+    display: inline-block;
+    /*height: 160px;*/
+    text-align: left;
+    text-decoration: none solid rgb(51, 51, 51);
+    text-size-adjust: 100%;
+    width: 180px;
+    column-rule-color: rgb(51, 51, 51);
+    perspective-origin: 40.4688px 45.4102px;
+    transform-origin: 40.4785px 45.4199px;
+    caret-color: rgb(51, 51, 51);
+    border: 0px none rgb(51, 51, 51);
+    font: normal normal 400 15px / 22.5px "思源黑体", "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei", "Hiragino Sans GB", "Heiti SC", "WenQuanYi Micro Hei", sans-serif;
+    list-style: none outside none;
+    margin: 15px 7px;
+    outline: rgb(51, 51, 51) none 0px;
+    vertical-align: top;
+}
+
+
+.UL_center{
+	text-align: center!important;
+}
+
+
+.SPAN_icon {
+    background-position: 0px 0px;
+    color: rgb(51, 51, 51);
+    display: block;
+    height: 90px;
+    text-align: left;
+    text-decoration: none solid rgb(51, 51, 51);
+    text-size-adjust: 100%;
+    width: 120px;
+    column-rule-color: rgb(51, 51, 51);
+    perspective-origin: 27.1289px 27.1289px;
+    transform-origin: 27.1289px 27.1289px;
+    caret-color: rgb(51, 51, 51);
+    border: 0px none rgb(51, 51, 51);
+    font: normal normal 400 15.5031px / 23.2547px "思源黑体", "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei", "Hiragino Sans GB", "Heiti SC", "WenQuanYi Micro Hei", sans-serif;
+    list-style: none outside none;
+    margin: 3px 30px 6px 30px;
+    outline: rgb(51, 51, 51) none 0px;
+}/*#SPAN_icon*/
+
+span.SPAN_Bold{
+	font-size: 22px;
+	font-weight: bold;
+}
+
+#SPAN_n1, #SPAN_n2, .SPAN_n {
+    color: rgb(82, 82, 82);
+    display: block;
+    text-align: center;
+    text-decoration: none solid rgb(51, 51, 51);
+    text-size-adjust: 100%;
+    /*width: 80.957px;*/
+    column-rule-color: rgb(51, 51, 51);
+    perspective-origin: 40.4688px 11.25px;
+    transform-origin: 40.4785px 11.25px;
+    caret-color: rgb(51, 51, 51);
+    border: 0px none rgb(51, 51, 51);
+    list-style: none outside none;
+    outline: rgb(51, 51, 51) none 0px;
+}
+
+#SPAN_n1{
+	font: normal normal 400 22px / 24px "思源黑体", "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei", "Hiragino Sans GB", "Heiti SC", "WenQuanYi Micro Hei", sans-serif;
+	margin: 2px 2px 10px 2px;
+}
+
+#SPAN_n1 a{
+	color: rgb(0, 121, 214);
+}
+
+#SPAN_n2, .SPAN_n {
+	font: normal normal 400 22px / 22px "思源黑体", "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei", "Hiragino Sans GB", "Heiti SC", "WenQuanYi Micro Hei", sans-serif;
+	margin: 2px;	
+}
+
+#SPAN_audio {
+	background: rgba(0, 0, 0, 0) url("/img/lcd/250/3.5mm-Audio.png") no-repeat scroll 0px 0px / 100% padding-box border-box;
+    background-size: contain;
+}
+
+#SPAN_4PIN {
+	background: rgba(0, 0, 0, 0) url("/img/lcd/250/4PIN.png") no-repeat scroll 0px 0px / 100% padding-box border-box;
+    background-size: contain;
+}
+#SPAN_Brightness {
+	background: rgba(0, 0, 0, 0) url("/img/lcd/250/Brightness.png") no-repeat scroll 0px 0px / 100% padding-box border-box;
+    background-size: contain;
+}
+
+#SPAN_AMOLED {
+	background: rgba(0, 0, 0, 0) url("/img/lcd/250/AMOLED.png") no-repeat scroll 0px 0px / 100% padding-box border-box;
+    background-size: contain;
+}
+#SPAN_AMOLED-2 {
+	background: rgba(0, 0, 0, 0) url("/img/lcd/250/AMOLED-2.png") no-repeat scroll 0px 0px / 100% padding-box border-box;
+    background-size: contain;
+}
+
+#SPAN_Backlight {
+	background: rgba(0, 0, 0, 0) url("/img/lcd/250/Backlight.png") no-repeat scroll 0px 0px / 100% padding-box border-box;
+    background-size: contain;
+}
+
+#SPAN_Backlight-1line {
+	background: rgba(0, 0, 0, 0) url("/img/lcd/250/Backlight-1line.png") no-repeat scroll 0px 0px / 100% padding-box border-box;
+    background-size: contain;
+}
+
+#SPAN_Battery {
+	background: rgba(0, 0, 0, 0) url("/img/lcd/250/Battery.png") no-repeat scroll 0px 0px / 100% padding-box border-box;
+    background-size: contain;
+}
+
+#SPAN_Capacitive_touch {
+	background: rgba(0, 0, 0, 0) url("/img/lcd/250/Capacitive_touch.png") no-repeat scroll 0px 0px / 100% padding-box border-box;
+    background-size: contain;
+}
+
+#SPAN_CE {
+	background: rgba(0, 0, 0, 0) url("/img/lcd/250/CE.png") no-repeat scroll 0px 0px / 100% padding-box border-box;
+    background-size: contain;
+}
+
+#SPAN_RoHS {
+	background: rgba(0, 0, 0, 0) url("/img/lcd/250/RoHS.png") no-repeat scroll 0px 0px / 100% padding-box border-box;
+    background-size: contain;
+}
+
+#SPAN_Dimension {
+	background: rgba(0, 0, 0, 0) url("/img/lcd/250/Dimension.png") no-repeat scroll 0px 0px / 100% padding-box border-box;
+    background-size: contain;
+}
+
+#SPAN_Five_touch {
+	background: rgba(0, 0, 0, 0) url("/img/lcd/250/Five_touch.png") no-repeat scroll 0px 0px / 100% padding-box border-box;
+    background-size: contain;
+}
+
+#SPAN_Game_host {
+	background: rgba(0, 0, 0, 0) url("/img/lcd/250/Game_host.png") no-repeat scroll 0px 0px / 100% padding-box border-box;
+    background-size: contain;
+}
+
+#SPAN_HDMI {
+	background: rgba(0, 0, 0, 0) url("/img/lcd/250/HDMI.png") no-repeat scroll 0px 0px / 100% padding-box border-box;
+    background-size: contain;
+}
+
+#SPAN_DPI {
+	background: rgba(0, 0, 0, 0) url("/img/lcd/250/DPI.png") no-repeat scroll 0px 0px / 100% padding-box border-box;
+    background-size: contain;
+}
+
+#SPAN_OLED {
+	background: rgba(0, 0, 0, 0) url("/img/lcd/250/OLED.png") no-repeat scroll 0px 0px / 100% padding-box border-box;
+    background-size: contain;
+}
+
+#SPAN_Low_power {
+	background: rgba(0, 0, 0, 0) url("/img/lcd/250/Low_power.png") no-repeat scroll 0px 0px / 100% padding-box border-box;
+    background-size: contain;
+}
+
+#SPAN_IPS {
+	background: rgba(0, 0, 0, 0) url("/img/lcd/250/IPS.png") no-repeat scroll 0px 0px / 100% padding-box border-box;
+    background-size: contain;
+}
+#SPAN_TFT {
+	background: rgba(0, 0, 0, 0) url("/img/lcd/250/TFT.png") no-repeat scroll 0px 0px / 100% padding-box border-box;
+    background-size: contain;
+}
+#SPAN_TN {
+	background: rgba(0, 0, 0, 0) url("/img/lcd/250/TN.png") no-repeat scroll 0px 0px / 100% padding-box border-box;
+    background-size: contain;
+}
+#SPAN_Micro_USB {
+	background: rgba(0, 0, 0, 0) url("/img/lcd/250/Micro_USB.png") no-repeat scroll 0px 0px / 100% padding-box border-box;
+    background-size: contain;
+}
+
+#SPAN_OSD {
+	background: rgba(0, 0, 0, 0) url("/img/lcd/250/OSD.png") no-repeat scroll 0px 0px / 100% padding-box border-box;
+    background-size: contain;
+}
+
+#SPAN_Phone {
+	background: rgba(0, 0, 0, 0) url("/img/lcd/250/Phone.png") no-repeat scroll 0px 0px / 100% padding-box border-box;
+    background-size: contain;
+}
+
+#SPAN_Resistive_touch {
+	background: rgba(0, 0, 0, 0) url("/img/lcd/250/Resistive_touch.png") no-repeat scroll 0px 0px / 100% padding-box border-box;
+    background-size: contain;
+}
+
+#SPAN_Resolution {
+	background: rgba(0, 0, 0, 0) url("/img/lcd/250/Resolution.png") no-repeat scroll 0px 0px / 100% padding-box border-box;
+    background-size: contain;
+}
+#SPAN_Segment {
+	background: rgba(0, 0, 0, 0) url("/img/lcd/250/Segment.png") no-repeat scroll 0px 0px / 100% padding-box border-box;
+    background-size: contain;
+}
+
+#SPAN_Camera {
+	background: rgba(0, 0, 0, 0) url("/img/lcd/250/Camera.png") no-repeat scroll 0px 0px / 100% padding-box border-box;
+    background-size: contain;
+}
+
+#SPAN_Shell {
+	background: rgba(0, 0, 0, 0) url("/img/lcd/250/Shell.png") no-repeat scroll 0px 0px / 100% padding-box border-box;
+    background-size: contain;
+}
+
+#SPAN_Shell_Metal {
+	background: rgba(0, 0, 0, 0) url("/img/lcd/250/Shell_Metal.png") no-repeat scroll 0px 0px / 100% padding-box border-box;
+    background-size: contain;
+}
+
+#SPAN_Speaker {
+	background: rgba(0, 0, 0, 0) url("/img/lcd/250/Speaker.png") no-repeat scroll 0px 0px / 100% padding-box border-box;
+    background-size: contain;
+}
+
+#SPAN_Tempered_panel {
+	background: rgba(0, 0, 0, 0) url("/img/lcd/250/Tempered_panel.png") no-repeat scroll 0px 0px / 100% padding-box border-box;
+    background-size: contain;
+}
+
+#SPAN_Ten_touch {
+	background: rgba(0, 0, 0, 0) url("/img/lcd/250/Ten_touch.png") no-repeat scroll 0px 0px / 100% padding-box border-box;
+    background-size: contain;
+}
+
+#SPAN_Type_A {
+	background: rgba(0, 0, 0, 0) url("/img/lcd/250/Type_A.png") no-repeat scroll 0px 0px / 100% padding-box border-box;
+    background-size: contain;
+}
+
+#SPAN_Type_C {
+	background: rgba(0, 0, 0, 0) url("/img/lcd/250/Type_C.png") no-repeat scroll 0px 0px / 100% padding-box border-box;
+    background-size: contain;
+}
+
+#SPAN_USB {
+	background: rgba(0, 0, 0, 0) url("/img/lcd/250/USB.png") no-repeat scroll 0px 0px / 100% padding-box border-box;
+    background-size: contain;
+}
+
+#SPAN_Viewing_angle {
+	background: rgba(0, 0, 0, 0) url("/img/lcd/250/Viewing_angle.png") no-repeat scroll 0px 0px / 100% padding-box border-box;
+    background-size: contain;
+}
+
+#SPAN_RoHS20 {
+	background: rgba(0, 0, 0, 0) url("/img/lcd/250/RoHS2.0.png") no-repeat scroll 0px 0px / 100% padding-box border-box;
+    background-size: contain;
+}
+
+#SPAN_SPI_Display {
+	background: rgba(0, 0, 0, 0) url("/img/lcd/250/SPI_Display.png") no-repeat scroll 0px 0px / 100% padding-box border-box;
+    background-size: contain;
+}
+
+#SPAN_SPI_Touch {
+	background: rgba(0, 0, 0, 0) url("/img/lcd/250/SPI_Touch.png") no-repeat scroll 0px 0px / 100% padding-box border-box;
+    background-size: contain;
+}
+
+#SPAN_SPI_I2C_7PIN {
+	background: rgba(0, 0, 0, 0) url("/img/lcd/250/SPI_I2C_7PIN.png") no-repeat scroll 0px 0px / 100% padding-box border-box;
+    background-size: contain;
+}
+
+#SPAN_Audio_Input {
+	background: rgba(0, 0, 0, 0) url("/img/lcd/250/Audio_Input.png") no-repeat scroll 0px 0px / 100% padding-box border-box;
+    background-size: contain;
+}
+
+#SPAN_Flip_Screen {
+	background: rgba(0, 0, 0, 0) url("/img/lcd/250/Flip_Screen.png") no-repeat scroll 0px 0px / 100% padding-box border-box;
+    background-size: contain;
+}
+
+#SPAN_RPi_3A_Plus {
+	background: rgba(0, 0, 0, 0) url("/img/lcd/250/RPi_3A_Plus.png") no-repeat scroll 0px 0px / 100% padding-box border-box;
+    background-size: contain;
+}
+#SPAN_RPi {
+	background: rgba(0, 0, 0, 0) url("/img/lcd/250/RPi.png") no-repeat scroll 0px 0px / 100% padding-box border-box;
+    background-size: contain;
+}
+
+#SPAN_Voice_Assistant {
+	background: rgba(0, 0, 0, 0) url("/img/lcd/250/Voice_Assistant.png") no-repeat scroll 0px 0px / 100% padding-box border-box;
+    background-size: contain;
+}
+
+#SPAN_I2C {
+	background: rgba(0, 0, 0, 0) url("/img/lcd/250/I2C.png") no-repeat scroll 0px 0px / 100% padding-box border-box;
+    background-size: contain;
+}
+
+#SPAN_mipi {
+	background: rgba(0, 0, 0, 0) url("/img/lcd/250/mipi.png") no-repeat scroll 0px 0px / 100% padding-box border-box;
+    background-size: contain;
+}
+
+#SPAN_mipi-CSI {
+	background: rgba(0, 0, 0, 0) url("/img/lcd/250/mipi-CSI.png") no-repeat scroll 0px 0px / 100% padding-box border-box;
+    background-size: contain;
+}
+
+#SPAN_Holster {
+	background: rgba(0, 0, 0, 0) url("/img/lcd/250/Holster.png") no-repeat scroll 0px 0px / 100% padding-box border-box;
+    background-size: contain;
+}
+
+#SPAN_Paper {
+	background: rgba(0, 0, 0, 0) url("/img/lcd/250/Paper.png") no-repeat scroll 0px 0px / 100% padding-box border-box;
+    background-size: contain;
+}
+
+#SPAN_Adjust {
+	background: rgba(0, 0, 0, 0) url("/img/lcd/250/Adjust.png") no-repeat scroll 0px 0px / 100% padding-box border-box;
+    background-size: contain;
+}
+
+#SPAN_e-Paper {
+	background: rgba(0, 0, 0, 0) url("/img/lcd/250/e-Paper.png") no-repeat scroll 0px 0px / 100% padding-box border-box;
+    background-size: contain;
+}
+
+#SPAN_Eye-protection {
+	background: rgba(0, 0, 0, 0) url("/img/lcd/250/Eye-protection.png") no-repeat scroll 0px 0px / 100% padding-box border-box;
+    background-size: contain;
+}
+
+#SPAN_FPGA {
+	background: rgba(0, 0, 0, 0) url("/img/lcd/250/FPGA.png") no-repeat scroll 0px 0px / 100% padding-box border-box;
+    background-size: contain;
+}
+
+#SPAN_PC-Phone {
+	background: rgba(0, 0, 0, 0) url("/img/lcd/250/PC-Phone.png") no-repeat scroll 0px 0px / 100% padding-box border-box;
+    background-size: contain;
+}
+
+#SPAN_Reflective {
+	background: rgba(0, 0, 0, 0) url("/img/lcd/250/Reflective.png") no-repeat scroll 0px 0px / 100% padding-box border-box;
+    background-size: contain;
+}
+
+#SPAN_Shell2 {
+	background: rgba(0, 0, 0, 0) url("/img/lcd/250/Shell2.png") no-repeat scroll 0px 0px / 100% padding-box border-box;
+    background-size: contain;
+}
+
+#SPAN_Sun {
+	background: rgba(0, 0, 0, 0) url("/img/lcd/250/Sun.png") no-repeat scroll 0px 0px / 100% padding-box border-box;
+    background-size: contain;
+}
+
+#SPAN_Pi-Jetson-PC {
+	background: rgba(0, 0, 0, 0) url("/img/lcd/250/Pi-Jetson-PC.png") no-repeat scroll 0px 0px / 100% padding-box border-box;
+    background-size: contain;
+}
+#SPAN_Pi-PC {
+	background: rgba(0, 0, 0, 0) url("/img/lcd/250/Pi-PC.png") no-repeat scroll 0px 0px / 100% padding-box border-box;
+    background-size: contain;
+}
+
+
+#SPAN_Display-RBW {
+	background: rgba(0, 0, 0, 0) url("/img/lcd/250/Display-RBW.png") no-repeat scroll 0px 0px / 100% padding-box border-box;
+    background-size: contain;
+}
+
+#SPAN_Display-RYBW {
+	background: rgba(0, 0, 0, 0) url("/img/lcd/250/Display-RYBW.png") no-repeat scroll 0px 0px / 100% padding-box border-box;
+    background-size: contain;
+}
+
+#SPAN_Display-YBW {
+	background: rgba(0, 0, 0, 0) url("/img/lcd/250/Display-YBW.png") no-repeat scroll 0px 0px / 100% padding-box border-box;
+    background-size: contain;
+}
+
+#SPAN_Display-BW {
+	background: rgba(0, 0, 0, 0) url("/img/lcd/250/Display-BW.png") no-repeat scroll 0px 0px / 100% padding-box border-box;
+    background-size: contain;
+}
+#SPAN_Display-B {
+	background: rgba(0, 0, 0, 0) url("/img/lcd/250/Display-B.png") no-repeat scroll 0px 0px / 100% padding-box border-box;
+    background-size: contain;
+}
+
+#SPAN_Display-7color {
+	background: rgba(0, 0, 0, 0) url("/img/lcd/250/Display-7color.png") no-repeat scroll 0px 0px / 100% padding-box border-box;
+    background-size: contain;
+}
+
+#SPAN_Gray-scale-16 {
+	background: rgba(0, 0, 0, 0) url("/img/lcd/250/Gray-scale-16.png") no-repeat scroll 0px 0px / 100% padding-box border-box;
+    background-size: contain;
+}
+
+#SPAN_Gray-scale-4 {
+	background: rgba(0, 0, 0, 0) url("/img/lcd/250/Gray-scale-4.png") no-repeat scroll 0px 0px / 100% padding-box border-box;
+    background-size: contain;
+}
+
+#SPAN_Gray-scale-2 {
+	background: rgba(0, 0, 0, 0) url("/img/lcd/250/Gray-scale-2.png") no-repeat scroll 0px 0px / 100% padding-box border-box;
+    background-size: contain;
+}
+
+#SPAN_SPI {
+	background: rgba(0, 0, 0, 0) url("/img/lcd/250/SPI.png") no-repeat scroll 0px 0px / 100% padding-box border-box;
+    background-size: contain;
+}
+
+#SPAN_HDR {
+	background: rgba(0, 0, 0, 0) url("/img/lcd/250/HDR.png") no-repeat scroll 0px 0px / 100% padding-box border-box;
+    background-size: contain;
+}
+
+#SPAN_Bulb {
+	background: rgba(0, 0, 0, 0) url("/img/lcd/250/Bulb.png") no-repeat scroll 0px 0px / 100% padding-box border-box;
+    background-size: contain;
+}
+
+#SPAN_Refresh {
+	background: rgba(0, 0, 0, 0) url("/img/lcd/250/Refresh.png") no-repeat scroll 0px 0px / 100% padding-box border-box;
+    background-size: contain;
+}
+
+#SPAN_Tech-of-TouchPanel {
+	background: rgba(0, 0, 0, 0) url("/img/lcd/250/Tech-of-TouchPanel.png") no-repeat scroll 0px 0px / 100% padding-box border-box;
+    background-size: contain;
+}
+
+#SPAN_CNC {
+	background: rgba(0, 0, 0, 0) url("/img/lcd/250/CNC.png") no-repeat scroll 0px 0px / 100% padding-box border-box;
+    background-size: contain;
+}
+#SPAN_Mini-HDMI {
+	background: rgba(0, 0, 0, 0) url("/img/lcd/250/Mini-HDMI.png") no-repeat scroll 0px 0px / 100% padding-box border-box;
+    background-size: contain;
+}
+
+#SPAN_Flexible {
+	background: rgba(0, 0, 0, 0) url("/img/lcd/250/Flexible.png") no-repeat scroll 0px 0px / 100% padding-box border-box;
+    background-size: contain;
+}
+#SPAN_Flexible2 {
+	background: rgba(0, 0, 0, 0) url("/img/lcd/250/Flexible2.png") no-repeat scroll 0px 0px / 100% padding-box border-box;
+    background-size: contain;
+}
+
+#SPAN_Parallel {
+	background: rgba(0, 0, 0, 0) url("/img/lcd/250/Parallel.png") no-repeat scroll 0px 0px / 100% padding-box border-box;
+    background-size: contain;
+}
+
+#SPAN_Full-Fit {
+	background: rgba(0, 0, 0, 0) url("/img/lcd/250/Full-Fit.png") no-repeat scroll 0px 0px / 100% padding-box border-box;
+    background-size: contain;
+}
+#Temperature {
+	background: rgba(0, 0, 0, 0) url("/img/lcd/250/Temperature.png") no-repeat scroll 0px 0px / 100% padding-box border-box;
+    background-size: contain;
+}
+#SPAN_Driver-IC {
+	background: rgba(0, 0, 0, 0) url("/img/lcd/250/Driver-IC.png") no-repeat scroll 0px 0px / 100% padding-box border-box;
+    background-size: contain;
+}
+#SPAN_LCD-IC {
+	background: rgba(0, 0, 0, 0) url("/img/lcd/250/LCD-IC.png") no-repeat scroll 0px 0px / 100% padding-box border-box;
+    background-size: contain;
+}
+#SPAN_Touch-IC {
+	background: rgba(0, 0, 0, 0) url("/img/lcd/250/Touch-IC.png") no-repeat scroll 0px 0px / 100% padding-box border-box;
+    background-size: contain;
+}
+#SPAN_Colourful-Screen {
+	background: rgba(0, 0, 0, 0) url("/img/lcd/250/Colourful-Screen.png") no-repeat scroll 0px 0px / 100% padding-box border-box;
+    background-size: contain;
+}
+#SPAN_Color-YB-W-B {
+	background: rgba(0, 0, 0, 0) url("/img/lcd/250/Color-YB-W-B.png") no-repeat scroll 0px 0px / 100% padding-box border-box;
+    background-size: contain;
+}
+#SPAN_Color-W-B {
+	background: rgba(0, 0, 0, 0) url("/img/lcd/250/Color-W-B.png") no-repeat scroll 0px 0px / 100% padding-box border-box;
+    background-size: contain;
+}
+#SPAN_Color-W-Y {
+	background: rgba(0, 0, 0, 0) url("/img/lcd/250/Color-W-Y.png") no-repeat scroll 0px 0px / 100% padding-box border-box;
+    background-size: contain;
+}
+#SPAN_NFC {
+	background: rgba(0, 0, 0, 0) url("/img/lcd/250/NFC.png") no-repeat scroll 0px 0px / 100% padding-box border-box;
+    background-size: contain;
+}
+#SPAN_NO-Battery {
+	background: rgba(0, 0, 0, 0) url("/img/lcd/250/NO-Battery.png") no-repeat scroll 0px 0px / 100% padding-box border-box;
+    background-size: contain;
+}
+#SPAN_QLED {
+	background: rgba(0, 0, 0, 0) url("/img/lcd/250/QLED.png") no-repeat scroll 0px 0px / 100% padding-box border-box;
+    background-size: contain;
+}
+#SPAN_WiFi {
+	background: rgba(0, 0, 0, 0) url("/img/lcd/250/WiFi.png") no-repeat scroll 0px 0px / 100% padding-box border-box;
+    background-size: contain;
+}
+#SPAN_Bluetooth {
+	background: rgba(0, 0, 0, 0) url("/img/lcd/250/Bluetooth.png") no-repeat scroll 0px 0px / 100% padding-box border-box;
+    background-size: contain;
+}
+#SPAN_LCD {
+	background: rgba(0, 0, 0, 0) url("/img/lcd/250/LCD.png") no-repeat scroll 0px 0px / 100% padding-box border-box;
+    background-size: contain;
+}
+#SPAN_TEXT {
+	background: rgba(0, 0, 0, 0) url("/img/lcd/250/TEXT.png") no-repeat scroll 0px 0px / 100% padding-box border-box;
+    background-size: contain;
+}
+#SPAN_TEXT-BLUE {
+	background: rgba(0, 0, 0, 0) url("/img/lcd/250/TEXT-BLUE.png") no-repeat scroll 0px 0px / 100% padding-box border-box;
+    background-size: contain;
+}
+#SPAN_Resolution-words {
+	background: rgba(0, 0, 0, 0) url("/img/lcd/250/Resolution-words.png") no-repeat scroll 0px 0px / 100% padding-box border-box;
+    background-size: contain;
+}
+#SPAN_4bit8 {
+	background: rgba(0, 0, 0, 0) url("/img/lcd/250/4bit8.png") no-repeat scroll 0px 0px / 100% padding-box border-box;
+    background-size: contain;
+}
+#SPAN_Immersion_Gold {
+	background: rgba(0, 0, 0, 0) url("/img/lcd/250/Immersion_Gold.png") no-repeat scroll 0px 0px / 100% padding-box border-box;
+    background-size: contain;
+}
+#SPAN_VESA {
+	background: rgba(0, 0, 0, 0) url("/img/lcd/250/VESA.png") no-repeat scroll 0px 0px / 100% padding-box border-box;
+    background-size: contain;
+}
+#LI_n1{
+    color: rgb(51, 51, 51);
+	/*float: left;*/
+    display: inline-block;
+    /*height: 160px;*/
+    text-align: left;
+    text-decoration: none solid rgb(51, 51, 51);
+    text-size-adjust: 100%;
+    width: 180px;
+    column-rule-color: rgb(51, 51, 51);
+    perspective-origin: 40.4688px 45.4102px;
+    transform-origin: 40.4785px 45.4199px;
+    caret-color: rgb(51, 51, 51);
+    border: 0px none rgb(51, 51, 51);
+    font: normal normal 400 15px / 22.5px "思源黑体", "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei", "Hiragino Sans GB", "Heiti SC", "WenQuanYi Micro Hei", sans-serif;
+    list-style: none outside none;
+    margin: 15px 7px;
+    outline: rgb(51, 51, 51) none 0px;
+}
+
+#I_note{
+	color: red;
+    text-align: center;
+    text-decoration: none solid rgb(51, 51, 51);
+    text-size-adjust: 100%;
+    column-rule-color: rgb(51, 51, 51);
+    perspective-origin: 0px 0px;
+    transform-origin: 0px 0px;
+    caret-color: rgb(51, 51, 51);
+    border: 0px none rgb(51, 51, 51);
+    font: normal normal 400 30px / 30px Avenir, arial;
+    outline: rgb(51, 51, 51) none 0px;
+}
+
+/*mix3*/
+
+#DIV_n11, .DIV_n11 {
+    color: rgb(255, 255, 255);
+    /*height: 525.977px;*/
+    text-align: left;
+    text-decoration: none solid rgb(255, 255, 255);
+    text-size-adjust: 100%;
+    width: 960px;
+    column-rule-color: rgb(255, 255, 255);
+    perspective-origin: 775px 441.484px;
+    transform-origin: 775px 441.484px;
+    caret-color: rgb(255, 255, 255);
+    border: 0px none rgb(255, 255, 255);
+    font: normal normal 400 15px / 22.5px "思源黑体", "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei", "Hiragino Sans GB", "Heiti SC", "WenQuanYi Micro Hei", sans-serif;
+    outline: rgb(255, 255, 255) none 0px;
+    /*padding: 357px 0px 0px 790px;*/
+}/*#DIV_n11*/
+
+
+#H2_n12, .H2_n12 {
+    color: rgb(62, 65, 74);/*rgb(61, 109, 204);*/
+    /*height: 142.5px;*/
+    text-align: left;
+    text-decoration: none solid rgb(61, 109, 204);
+    text-size-adjust: 100%;
+    width: 480px;
+    column-rule-color: rgb(61, 109, 204);
+    perspective-origin: 380px 71.25px;
+    transform-origin: 380px 71.25px;
+    caret-color: rgb(61, 109, 204);
+    border: 0px none rgb(61, 109, 204);
+    font: normal normal 400 23px / 33px "思源黑体", F2f3e0;/*normal normal 400 48px / 72px F0ea75;*/
+	/*margin: 0px 0px 0px 520px;*/
+    outline: rgb(61, 109, 204) none 0px;
+}/*#H2_n12*/
+
+
+#P_n14, .P_n14 {
+    color: rgb(82, 82, 82);
+    /*height: 82.5px;*/
+    text-align: left;
+    text-decoration: none solid rgb(255, 255, 255);
+    text-size-adjust: 100%;
+    /*width: 520px;*/
+    column-rule-color: rgb(255, 255, 255);
+    perspective-origin: 380px 56.25px;
+    transform-origin: 380px 56.25px;
+    caret-color: rgb(255, 255, 255);
+    border: 0px none rgb(255, 255, 255);
+    font: normal normal 400 16px / 28px "思源黑体", F6e6d7;/*normal normal 400 22px / 42px "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei", "Hiragino Sans GB", "Heiti SC", "WenQuanYi Micro Hei", sans-serif;*/
+    outline: rgb(255, 255, 255) none 0px;
+	/*margin: 0px 0px 0px 520px;*/
+    padding: 0px 0px 5px 0px;
+}/*#P_n14*/
+
+#P_n15 {
+    color: rgb(82, 82, 82);
+    /*height: 82.5px;*/
+    text-align: left;
+    text-decoration: none solid rgb(255, 255, 255);
+    text-size-adjust: 100%;
+    /*width: 520px;*/
+    column-rule-color: rgb(255, 255, 255);
+    perspective-origin: 380px 56.25px;
+    transform-origin: 380px 56.25px;
+    caret-color: rgb(255, 255, 255);
+    border: 0px none rgb(255, 255, 255);
+    font: normal normal 400 16px / 28px "思源黑体", F6e6d7;/*normal normal 400 22px / 42px "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei", "Hiragino Sans GB", "Heiti SC", "WenQuanYi Micro Hei", sans-serif;*/
+    outline: rgb(255, 255, 255) none 0px;
+	/*margin: 0px 0px 0px 520px;*/
+    padding: 0px 0px 5px 0px;
+}/*#P_n14*/
+
+
+#H2_n12_m2 {
+    color: rgb(62, 65, 74);/*rgb(61, 109, 204);*/
+    /*height: 142.5px;*/
+    text-align: left;
+    text-decoration: none solid rgb(61, 109, 204);
+    text-size-adjust: 100%;
+    width: 480px;
+    column-rule-color: rgb(61, 109, 204);
+    perspective-origin: 380px 71.25px;
+    transform-origin: 380px 71.25px;
+    caret-color: rgb(61, 109, 204);
+    border: 0px none rgb(61, 109, 204);
+    font: normal normal 400 23px / 33px "思源黑体", F2f3e0;/*normal normal 400 48px / 72px F0ea75;*/
+	margin: 0px 0px 0px 540px;
+    outline: rgb(61, 109, 204) none 0px;
+}
+
+#P_n14_m2 {
+    color: rgb(82, 82, 82);
+    /*height: 82.5px;*/
+    text-align: left;
+    text-decoration: none solid rgb(255, 255, 255);
+    text-size-adjust: 100%;
+    width: 520px;
+    column-rule-color: rgb(255, 255, 255);
+    perspective-origin: 380px 56.25px;
+    transform-origin: 380px 56.25px;
+    caret-color: rgb(255, 255, 255);
+    border: 0px none rgb(255, 255, 255);
+    font: normal normal 400 17px / 28px "思源黑体", F6e6d7;/*normal normal 400 22px / 42px "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei", "Hiragino Sans GB", "Heiti SC", "WenQuanYi Micro Hei", sans-serif;*/
+    outline: rgb(255, 255, 255) none 0px;
+	margin: 0px 0px 0px 540px;
+    padding: 0px 0px 5px 0px;
+}
+
+#H2_n12.P_m0, .H2_n12.P_m0 {
+    margin: 0px 0px 0px 430px;
+}
+
+.P_m4 {
+    margin: 0px 0px 0px 470px;
+}
+.P_m5 {
+    margin: 0px 0px 0px 494px;
+}
+
+#P_n14.P_m0, .P_n14.P_m0 {
+    margin: 0px 0px 0px 430px;
+}
+
+#H2_n12.P_m1, .H2_n12.P_m1 {
+    margin: 0px 0px 0px 520px;
+}
+
+#P_n14.P_m1, .P_n14.P_m1 {
+    margin: 0px 0px 0px 520px;
+}
+
+#H2_n12.P_m2, .H2_n12.P_m2 {
+    margin: 0px 0px 0px 540px;
+}
+
+#P_n14.P_m2, .P_n14.P_m2 {
+    margin: 0px 0px 0px 540px;
+}
+
+#H2_n12.P_m3, .H2_n12.P_m3 {
+    margin: 0px 0px 0px 480px;
+}
+
+#P_n14.P_m3, .P_n14.P_m3 {
+    margin: 0px 0px 0px 480px;
+}
+
+#P_n14.P_red, .P_n14.P_red {
+    color: #ff2121;
+    /*font-family: "思源黑体", 'Avenir', arial!important;*/
+}
+
+#P_n14.P_red_bd, .P_n14.P_red_bd{
+	color: #ff2121;
+	border: solid 1px;
+    display: inline-block;
+    padding: 0.1em 0.5em;
+}
+#P_n14.P_red_bg, .P_n14.P_red_bg{
+	background: #ff2121;
+	color:#fff;
+    display: inline-block;
+    padding: 0.1em 0.5em;
+}
+
+.P_red {
+    color: #ff2121!important;
+    /*font-family: "思源黑体", 'Avenir', arial!important;*/
+}
+
+
+/*list*/
+
+
+#DIV_l2 {
+    color: rgb(51, 51, 51);
+    height: 400px;
+    text-decoration: none solid rgb(51, 51, 51);
+    text-size-adjust: 100%;
+    width: 1000px;
+    column-rule-color: rgb(51, 51, 51);
+    perspective-origin: 619.98px 313.984px;
+    transform-origin: 619.99px 313.984px;
+    caret-color: rgb(51, 51, 51);
+    border: 0px none rgb(51, 51, 51);
+    font: normal normal 400 15px / 22.5px "思源黑体", "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei", "Hiragino Sans GB", "Heiti SC", "WenQuanYi Micro Hei", sans-serif;
+    margin: 0px 0px 0px 0px;
+    outline: rgb(51, 51, 51) none 0px;
+}/*#DIV_l2*/
+
+
+#DIV_l3 {
+    color: rgb(51, 51, 51);
+    float: left;
+    /*height: 627.969px;*/
+    min-height: 1px;
+    text-decoration: none solid rgb(51, 51, 51);
+    text-size-adjust: 100%;
+    width: 565px;
+    column-rule-color: rgb(51, 51, 51);
+    perspective-origin: 116.992px 313.984px;
+    transform-origin: 116.992px 313.984px;
+    caret-color: rgb(51, 51, 51);
+    border: 0px none rgb(51, 51, 51);
+    font: normal normal 400 15px / 22.5px "思源黑体", "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei", "Hiragino Sans GB", "Heiti SC", "WenQuanYi Micro Hei", sans-serif;
+    margin: 0px 0px 0px 0px;
+    outline: rgb(51, 51, 51) none 0px;
+}/*#DIV_l3*/
+
+
+#UL_l4 {
+    color: rgb(51, 51, 51);
+    /*height: 613.984px;*/
+    text-decoration: none solid rgb(51, 51, 51);
+    text-size-adjust: 100%;
+    /*width: 247.969px;*/
+    column-rule-color: rgb(51, 51, 51);
+    perspective-origin: 123.984px 306.992px;
+    transform-origin: 123.984px 306.992px;
+    caret-color: rgb(51, 51, 51);
+    border: 0px none rgb(51, 51, 51);
+    font: normal normal 400 15px / 22.5px "思源黑体", "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei", "Hiragino Sans GB", "Heiti SC", "WenQuanYi Micro Hei", sans-serif;
+    list-style: none outside none;
+    margin: 0px 0px 0px 0px;
+    outline: rgb(51, 51, 51) none 0px;
+    padding: 0px;
+}/*#UL_l4*/
+
+
+#LI_l5 {
+    bottom: 0px;
+    color: rgb(51, 51, 51);
+    float: left;
+    /*height: 613.984px;*/
+    left: 0px;
+    position: relative;
+    right: 0px;
+    text-decoration: none solid rgb(51, 51, 51);
+    text-size-adjust: 100%;
+    top: 0px;
+    /*width: 233.984px;*/
+    z-index: 1;
+    column-rule-color: rgb(51, 51, 51);
+    perspective-origin: 116.992px 306.992px;
+    transform-origin: 116.992px 306.992px;
+    caret-color: rgb(51, 51, 51);
+    background: rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box border-box;
+    border: 0px none rgb(51, 51, 51);
+    font: normal normal 400 15px / 22.5px "思源黑体", "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei", "Hiragino Sans GB", "Heiti SC", "WenQuanYi Micro Hei", sans-serif;
+    list-style: none outside none;
+    margin: 0px 0px 0px 0px;
+    outline: rgb(51, 51, 51) none 0px;
+    transition: all 0.2s linear 0s;
+}/*#LI_l5*/
+
+
+#A_l6 {
+    color: rgb(117, 117, 117);
+    display: block;
+    /*height: 613.984px;*/
+    text-align: left;
+    text-decoration: none solid rgb(117, 117, 117);
+    text-size-adjust: 100%;
+    /*width: 233.984px;*/
+    column-rule-color: rgb(117, 117, 117);
+    perspective-origin: 116.992px 306.992px;
+    transform-origin: 116.992px 306.992px;
+    caret-color: rgb(117, 117, 117);
+    border: 0px none rgb(117, 117, 117);
+    font: normal normal 400 15px / 22.5px "思源黑体", "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei", "Hiragino Sans GB", "Heiti SC", "WenQuanYi Micro Hei", sans-serif;
+    list-style: none outside none;
+    outline: rgb(117, 117, 117) none 0px;
+}/*#A_l6*/
+
+
+#IMG_l7 {
+    color: rgb(117, 117, 117);
+    cursor: pointer;
+    /*height: 613.984px;*/
+    text-align: left;
+    text-decoration: none solid rgb(117, 117, 117);
+    text-size-adjust: 100%;
+    /*width: 233.984px;*/
+    column-rule-color: rgb(117, 117, 117);
+    perspective-origin: 116.992px 306.992px;
+    transform-origin: 116.992px 306.992px;
+    caret-color: rgb(117, 117, 117);
+    border: 0px none rgb(117, 117, 117);
+    font: normal normal 400 15px / 22.5px "思源黑体", "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei", "Hiragino Sans GB", "Heiti SC", "WenQuanYi Micro Hei", sans-serif;
+    list-style: none outside none;
+    outline: rgb(117, 117, 117) none 0px;
+}/*#IMG_l7*/
+
+
+#DIV_l8 {
+    color: rgb(51, 51, 51);
+    float: left;
+    /*height: 627.969px;*/
+    min-height: 1px;
+    text-decoration: none solid rgb(51, 51, 51);
+    text-size-adjust: 100%;
+    /*width: 395px;*/
+    column-rule-color: rgb(51, 51, 51);
+    perspective-origin: 488.984px 313.984px;
+    transform-origin: 488.994px 313.984px;
+    caret-color: rgb(51, 51, 51);
+    border: 0px none rgb(51, 51, 51);
+    font: normal normal 400 15px / 22.5px "思源黑体", "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei", "Hiragino Sans GB", "Heiti SC", "WenQuanYi Micro Hei", sans-serif;
+    margin: 0px 0px 0px 0px;
+    outline: rgb(51, 51, 51) none 0px;
+}/*#DIV_l8*/
+
+
+#UL_l9 {
+    color: rgb(51, 51, 51);
+    /*height: 613.984px;*/
+    text-decoration: none solid rgb(51, 51, 51);
+    text-size-adjust: 100%;
+    /*width: 390px;*/
+    column-rule-color: rgb(51, 51, 51);
+    perspective-origin: 495.996px 306.992px;
+    transform-origin: 495.996px 306.992px;
+    caret-color: rgb(51, 51, 51);
+    border: 0px none rgb(51, 51, 51);
+    font: normal normal 400 15px / 22.5px "思源黑体", "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei", "Hiragino Sans GB", "Heiti SC", "WenQuanYi Micro Hei", sans-serif;
+    list-style: none outside none;
+    margin: 0px 0px 0px 0px;
+    outline: rgb(51, 51, 51) none 0px;
+    padding: 0px;
+}/*#UL_l9*/
+
+
+#LI_sl1, .LI_sl1 {
+    bottom: 0px;
+    color: rgb(51, 51, 51);
+    float: left;
+    height: 180px;
+    left: 0px;
+    position: relative;
+    right: 0px;
+    text-decoration: none solid rgb(51, 51, 51);
+    text-size-adjust: 100%;
+    top: 0px;
+    /*width: 233.984px;*/
+    z-index: 1;
+    column-rule-color: rgb(51, 51, 51);
+    perspective-origin: 116.992px 150px;
+    transform-origin: 116.992px 150px;
+    caret-color: rgb(51, 51, 51);
+    background: rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box border-box;
+    border: 0px none rgb(51, 51, 51);
+    font: normal normal 400 15px / 22.5px "思源黑体", "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei", "Hiragino Sans GB", "Heiti SC", "WenQuanYi Micro Hei", sans-serif;
+    list-style: none outside none;
+    /*margin: 0px 0px 14px 14px;*/
+    outline: rgb(51, 51, 51) none 0px;
+    /*padding: 20px 0px;*/
+    transition: all 0.2s linear 0s;
+}
+
+
+#DIV_sl1, .DIV_sl1 {
+    color: rgb(51, 51, 51);
+    /*height: 160px;*/
+    text-align: left;
+    text-decoration: none solid rgb(51, 51, 51);
+    text-size-adjust: 100%;
+    /*width: 160px;*/
+    column-rule-color: rgb(51, 51, 51);
+    perspective-origin: 80px 80px;
+    transform-origin: 80px 80px;
+    caret-color: rgb(51, 51, 51);
+    border: 0px none rgb(51, 51, 51);
+    font: normal normal 400 15px / 22.5px "思源黑体", "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei", "Hiragino Sans GB", "Heiti SC", "WenQuanYi Micro Hei", sans-serif;
+    list-style: none outside none;
+    /*margin: 0px 36.9922px 18px;*/
+    outline: rgb(51, 51, 51) none 0px;
+}
+
+
+
+
+#DIV_l21 {
+    bottom: 280px;
+    color: rgb(255, 255, 255);
+    height: 30px;
+    left: 2px;
+    position: absolute;
+    right: 85px;
+    text-align: center;
+    text-decoration: none solid rgb(255, 255, 255);
+    text-size-adjust: 100%;
+    top: 2px;
+    width: 30px;
+    z-index: 5;
+    column-rule-color: rgb(255, 255, 255);
+    perspective-origin: 31.9922px 10px;
+    transform-origin: 31.9922px 10px;
+    caret-color: rgb(255, 255, 255);
+    background: rgb(76, 142, 200) none repeat scroll 0% 0% / auto padding-box border-box;
+    border: 0px none rgb(255, 255, 255);
+    font: normal normal 400 20px / 30px "思源黑体", "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei", "Hiragino Sans GB", "Heiti SC", "WenQuanYi Micro Hei", sans-serif;
+    list-style: none outside none;
+    margin: 0px 0px 0px 0px;
+    outline: rgb(255, 255, 255) none 0px;
+}/*#DIV_l21*/
+
+.number_blue {
+	bottom: 280px;
+    color: rgb(255, 255, 255);
+    height: 30px;
+    left: 2px;
+    position: absolute;
+    right: 85px;
+    text-align: center;
+    text-decoration: none solid rgb(255, 255, 255);
+    text-size-adjust: 100%;
+    top: 2px;
+    width: 30px;
+    z-index: 5;
+    column-rule-color: rgb(255, 255, 255);
+    perspective-origin: 31.9922px 10px;
+    transform-origin: 31.9922px 10px;
+    caret-color: rgb(255, 255, 255);
+    background: rgb(1 115 188) none repeat scroll 0% 0% / auto padding-box border-box;
+    border: 0px none rgb(255, 255, 255);
+    font: normal normal 400 20px / 30px "思源黑体", "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei", "Hiragino Sans GB", "Heiti SC", "WenQuanYi Micro Hei", sans-serif;
+    list-style: none outside none;
+    margin: 0px 0px 0px 0px;
+    outline: rgb(255, 255, 255) none 0px;
+}
+
+
+#SPAN_l39 {
+    color: rgb(255, 103, 0);
+    text-align: center;
+    text-decoration: none solid rgb(255, 103, 0);
+    text-size-adjust: 100%;
+    column-rule-color: rgb(255, 103, 0);
+    perspective-origin: 0px 0px;
+    transform-origin: 0px 0px;
+    caret-color: rgb(255, 103, 0);
+    border: 0px none rgb(255, 103, 0);
+    font: normal normal 400 15px / 22.5px "思源黑体", "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei", "Hiragino Sans GB", "Heiti SC", "WenQuanYi Micro Hei", sans-serif;
+    list-style: none outside none;
+    outline: rgb(255, 103, 0) none 0px;
+}/*#SPAN_l39*/
+
+
+#DIV_l51, #DIV_l63, #DIV_l87 {
+    bottom: 280px;
+    color: rgb(255, 255, 255);
+    height: 30px;
+    left: 2px;
+    position: absolute;
+    right: 85px;
+    text-align: center;
+    text-decoration: none solid rgb(255, 255, 255);
+    text-size-adjust: 100%;
+    top: 2px;
+    width: 30px;
+    z-index: 2;
+    column-rule-color: rgb(255, 255, 255);
+    perspective-origin: 31.9922px 10px;
+    transform-origin: 31.9922px 10px;
+    caret-color: rgb(255, 255, 255);
+    background: rgb(229, 57, 53) none repeat scroll 0% 0% / auto padding-box border-box;
+    border: 0px none rgb(255, 255, 255);
+    font: normal normal 400 20px / 30px "思源黑体", "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei", "Hiragino Sans GB", "Heiti SC", "WenQuanYi Micro Hei", sans-serif;
+    list-style: none outside none;
+    margin: 0px 0px 0px 0px;
+    outline: rgb(255, 255, 255) none 0px;
+}/*#DIV_l51, #DIV_l63, #DIV_l87*/
+
+
+#DIV_l75 {
+    bottom: 280px;
+    color: rgb(255, 255, 255);
+    height: 20px;
+    left: 116.992px;
+    position: absolute;
+    right: 85px;
+    text-align: center;
+    text-decoration: none solid rgb(255, 255, 255);
+    text-size-adjust: 100%;
+    top: 0px;
+    width: 63.9844px;
+    z-index: 2;
+    column-rule-color: rgb(255, 255, 255);
+    perspective-origin: 31.9922px 10px;
+    transform-origin: 31.9922px 10px;
+    caret-color: rgb(255, 255, 255);
+    background: rgb(229, 57, 53) none repeat scroll 0% 0% / auto padding-box border-box;
+    border: 0px none rgb(255, 255, 255);
+    font: normal normal 400 15px / 20px "思源黑体", "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei", "Hiragino Sans GB", "Heiti SC", "WenQuanYi Micro Hei", sans-serif;
+    list-style: none outside none;
+    margin: 0px 0px 0px -32px;
+    outline: rgb(255, 255, 255) none 0px;
+}/*#DIV_l75*/
+
+
+
+/**/
+#DIV_l97 {
+    color: rgb(51, 51, 51);
+    height: 6913.79px;
+    text-decoration: none solid rgb(51, 51, 51);
+    text-size-adjust: 100%;
+    width: 2303.75px;
+    column-rule-color: rgb(51, 51, 51);
+    perspective-origin: 1151.88px 3467.89px;
+    transform-origin: 1151.88px 3467.89px;
+    caret-color: rgb(51, 51, 51);
+    background: rgb(245, 245, 245) none repeat scroll 0% 0% / auto padding-box border-box;
+    border: 0px none rgb(51, 51, 51);
+    font: normal normal 400 15px / 22.5px "思源黑体", "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei", "Hiragino Sans GB", "Heiti SC", "WenQuanYi Micro Hei", sans-serif;
+    outline: rgb(51, 51, 51) none 0px;
+    padding: 22px 0px 0px;
+}
+
+#DIV_l98 {
+    color: rgb(51, 51, 51);
+    height: 6913.79px;
+    text-decoration: none solid rgb(51, 51, 51);
+    text-size-adjust: 100%;
+    width: 1226px;
+    column-rule-color: rgb(51, 51, 51);
+    perspective-origin: 612.988px 3456.89px;
+    transform-origin: 612.998px 3456.89px;
+    caret-color: rgb(51, 51, 51);
+    border: 0px none rgb(51, 51, 51);
+    font: normal normal 400 15px / 22.5px "思源黑体", "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei", "Hiragino Sans GB", "Heiti SC", "WenQuanYi Micro Hei", sans-serif;
+    margin: 0px 538.887px 0px 538.867px;
+    outline: rgb(51, 51, 51) none 0px;
+}
+
+#DIV_l99 {
+    color: rgb(51, 51, 51);
+    height: 685.996px;
+    text-decoration: none solid rgb(51, 51, 51);
+    text-size-adjust: 100%;
+    width: 1226px;
+    column-rule-color: rgb(51, 51, 51);
+    perspective-origin: 612.988px 342.988px;
+    transform-origin: 612.998px 342.998px;
+    caret-color: rgb(51, 51, 51);
+    border: 0px none rgb(51, 51, 51);
+    font: normal normal 400 15px / 22.5px "思源黑体", "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei", "Hiragino Sans GB", "Heiti SC", "WenQuanYi Micro Hei", sans-serif;
+    margin: 0px 0px 8px;
+    outline: rgb(51, 51, 51) none 0px;
+}
+
+#DIV_l1 {
+    color: rgb(51, 51, 51);
+    height: 627.969px;
+    text-decoration: none solid rgb(51, 51, 51);
+    text-size-adjust: 100%;
+    width: 1226px;
+    column-rule-color: rgb(51, 51, 51);
+    perspective-origin: 612.988px 313.984px;
+    transform-origin: 612.998px 313.984px;
+    caret-color: rgb(51, 51, 51);
+    border: 0px none rgb(51, 51, 51);
+    font: normal normal 400 15px / 22.5px "思源黑体", "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei", "Hiragino Sans GB", "Heiti SC", "WenQuanYi Micro Hei", sans-serif;
+    outline: rgb(51, 51, 51) none 0px;
+}
+
+
+.li_450px li{
+	float:left;
+	color:#666;
+	width:450px;	
+	text-align:left;
+	margin:5px 5px 5px 5px;
+	*vertical-align:bottom; /*for IE67*/
+}
+
+
+.li_900px li{
+	float:left;
+	color:rgb(82, 82, 82);
+	width:900px;	
+	text-align:left;
+	margin:5px;
+	*vertical-align:bottom; /*for IE67*/
+}
+.product_list_inline{
+    float: left;
+    width: 395px;
+}
+.font_18px{
+	font: normal 400 18px / 25px "思源黑体", F6e6d7;
+}
+
+
+#SelGridWrap {
+	width: 1100px;
+	text-align: center;
+	/*border-top: solid 1px #ccc;
+	border-left: solid 1px #ccc;*/
+}
+#SelGridWrap ul {
+	margin: 0;
+	padding: 0;
+}
+#SelGridWrap li {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	float: left;
+	/*box-shadow: 1px 1px 4px #999;*/
+	/*border-right: solid 1px #ccc;
+	border-bottom: solid 1px #ccc;*/
+}
+#SelGridWrap li img {
+	width: 100%;
+	margin-bottom: -0.5em;
+	background-color: #eaeaea;
+	transition: all 0.5s ease-in;
+}
+#SelGridWrap li:hover img {
+	background-color: #fff;
+}
+#SelGridWrap li a {
+	/*background-color: rgb(76, 142, 200);
+	color: #fff;*/
+	color: rgb(0, 121, 214);
+	font-size: 1.2em;
+	text-decoration: none;
+	padding: 0 0.3em 0.1em 0.3em;
+}
+#SelGridWrap ul.c7 li {
+	width: 150px;
+    /* height: 120px; */
+    height: 130px;
+}
+#SelGridWrap ul.c6 li {
+	width: 175px;
+    /* height: 120px; */
+    height: 152px;
+}
+#SelGridWrap ul.c5 li {
+	width: 212px;
+    /* height: 144px; */
+    height: 170px;
+}
+#SelGridWrap ul.c4 li {
+	width: 265px;
+    /* height: 180px; */
+    height: 210px;
+}
+#SelGridWrap ul.c3 li {
+	width: 350px;
+    /*height: 245px;*/
+    height: 260px;
+}
+/*#SelGridWrap ul.c5 img{
+	background-color: #eee;
+}
+#SelGridWrap ul.c4 img{
+	background-color: #ddd;
+}
+#SelGridWrap ul.c3 img{
+	background-color: #ccc;
+}*/
+
+
+.big-div {
+    position: relative;
+    z-index: 99;
+}
+.ws-lb {
+    position: absolute;
+    left: 0;
+	bottom: 0;
+}
+
+.ws-rb {
+    position: absolute;
+    right: 0;
+	bottom: 0;
+}
+
+.ws-rt {
+    position: absolute;
+    right: 0;
+	top: 0;
+}
+
+.ws-lt {
+    position: absolute;
+    left: 0;
+	top: 0;
+}
+
+.small-div{
+	position: absolute;
+}
+
+.img-280 img{
+	width: 280px;
+}
+
+.img-250 img{
+	width: 250px;
+}
+
+.img-200 img{
+	width: 200px;
+}
+
+.img-140 img{
+	width: 140px;
+}
+
+.img-80 img{
+	width: 80px;
+}
+
+
+.bg-div {
+    display: inline-block;
+    position: relative;
+}
+.lcd-list-left{
+    float: left; 
+    width: 395px;
+    margin-bottom: 2em;
+}
+
+#UL_left2px{
+	padding:0;
+	margin:0 0 0 -2px;
+	}
+	
+.LI_number li{
+	list-style: none outside none!important;
+	float: left;
+	position: relative; 
+	font:normal normal 200 normal 12px / 10px "思源黑体";
+	margin-bottom: 60px;
+    margin-left: 5px;
+}
+
+.LI_number li:hover {
+    box-shadow: 0 5px 15px rgba(0,0,0,.1);
+	transform: translateY(-2px);
+}
+
+.LI_number li img{
+	border: 1.3px solid rgb(239, 239, 239);
+}
+/*.number_blue{ display:none;}*/
+.number_sblue{
+	color: rgb(255, 255, 255);
+    height: 23px;
+	position: absolute;
+	text-align: center;
+	top: 2px;
+    width: 23px;
+	background: rgb(76, 142, 200) none repeat scroll 0% 0% / auto padding-box border-box;
+	font: normal normal 400 18px / 23px "思源黑体", "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei", "Hiragino Sans GB", "Heiti SC", "WenQuanYi Micro Hei", sans-serif;
+}
+.number_name{
+	color: #FFF;
+	left: 2px;
+	position: absolute;
+	text-align: center;
+	bottom: 3px;
+	left: -1px;
+	right: auto;
+	width: 95%;
+	/*background: rgb(241, 241, 241) none repeat scroll 10% 50% / auto padding-box border-box;*/
+	background: url(/photo/development-board/PI4B-Packages/gray-bg.png);
+	height: 20px;
+	font: normal normal 400 16px / 20px "思源黑体", "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei", "Hiragino Sans GB", "Heiti SC", "WenQuanYi Micro Hei", sans-serif;
+    
+}
+
+
+
+.number_lname{
+	color: #000;
+	position: absolute;
+	text-align: center;
+	width: 100%;
+	background: rgb(239, 239, 239) none repeat scroll 0% 0% / auto padding-box border-box;
+	height: 25px;
+	padding:2px 0px 5px 0px;
+	font: normal normal 400 20px / 25px "思源黑体", "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei", "Hiragino Sans GB", "Heiti SC", "WenQuanYi Micro Hei", sans-serif;
+}
+
+.LI_name{
+	/*color: #575757;
+    height: 20px;*/
+    left: 2px;
+    position: absolute;
+    text-align: center;
+    /*bottom: 2px;*/
+    top: 134px;
+    line-height: 28px;
+    left: auto;
+    right: auto;
+    width: 95%;
+    /*background: rgb(241, 241, 241) none repeat scroll 10% 50% / auto padding-box border-box;
+	background:url(/photo/development-board/PI4B-Packages/gray-bg.png);;*/
+    font: normal normal 400 16px / 20px "思源黑体", "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei", "Hiragino Sans GB", "Heiti SC", "WenQuanYi Micro Hei", sans-serif;
+}
+
+ul.pd-left80px{
+	padding-left:80px;
+}
+
+.img_800px img{
+	width:800px;
+	height:auto;	
+}
+.intro_3x2 {padding:0 100px;}
+.intro_3x2 ul li{list-style:none!important}
+.intro_mxn ul li{
+	float:left; 
+	height:70px; 
+	width:33%; 
+	padding:20px 0px 30px 0px;
+	/*border-right:1px solid rgb(229, 229, 229); 
+	border-bottom:1px solid rgb(229, 229, 229); 
+	padding: 28px 0px 40px 0px;*/
+}
+
+.intro_mxn h4{
+	letter-spacing: 1px; 
+	font-size:28px; 
+	line-height:45px; 
+	color:rgb(51, 51, 51);
+}
+
+.intro_mxn p{
+	font-size:17px; 
+	line-height:22px; 
+	color:rgb(51, 51, 51);
+}
+
+.intro_rb_border,.intro_r_border{
+	border-right:1px solid rgb(229, 229, 229); 
+}
+
+.intro_b_border, .intro_rb_border{
+	border-bottom: 1px solid rgb(229, 229, 229); 
+}
+
+.details_sidebar, .green_sidebar{
+	width:330px; 
+    height:504px;
+}
+
+.green_sidebar{ 
+    background:#68bf4c; 
+}
+
+.green_sidebar a, .sidebar_title a{
+	color:#FFF; 
+	text-decoration:none;
+}
+
+.sidebar_title {
+	position: absolute;
+	width:230px; 
+	height:108px; 
+	background:#202020;
+	top: 0px;
+	left: auto; 
+	right: auto; 
+	text-align: center;
+	font-size: 30px;
+	color: white; 
+	padding-top:8px
+}
+
+.sidebar_title hr{ 
+	width:144px;
+	color:white;
+	margin-top: 8px;
+	margin-bottom: 3px;
+	height:1px;
+	border-width:0;
+	background-color:white;
+	text-align:center;
+}
+
+.sidebar_text{
+	position: absolute;
+	top: 144px;
+	left: auto; 
+	right: auto; 
+	letter-spacing: 0.5px;
+	text-align: left;
+	font-size: 24px; 
+	line-height:32px;
+	width:280px;
+	color:white;
+}
+
+
+.Responsive-width {
+	text-align:center;
+}
+
+ul.vertical-list{
+	padding:0px;	
+}
+
+.vertical-list li {
+    list-style: none outside none;
+    text-align: center;
+    position: relative;
+	color: rgb(0, 121, 214);
+    font: normal normal 400 15px / 17px "思源黑体", "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei", "Hiragino Sans GB", "Heiti SC", "WenQuanYi Micro Hei", sans-serif;
+	margin:0px 0px 8px 0px;
+    /*margin-bottom: 40px;
+    margin-left: 5px;*/
+	padding:0px;
+}
+
+/*.vertical-list li:hover {
+    box-shadow: 0 5px 15px rgba(0,0,0,.1);
+    transform: translateY(-2px);
+}
+
+.vertical-list li img{
+	border: 1.3px solid rgb(239, 239, 239);
+}*/
+
+.width-90px, .width-120px,.width-125px, .width-150px,.width-160px,.width-180px,.width-200px, .width-240px,.width-250px, .width-280px, .width-320px {
+	float:left;
+	margin-left:2px;
+}
+
+.width-90px img{
+	width:90px;
+}
+
+.width-120px img{
+	width:120px;
+}
+.width-125px img{
+	width:125px;
+}
+
+.width-150px img{
+	width:150px;
+}
+
+.width-160px img{
+	width:160px;
+}
+
+.width-180px img{
+	width:180px;
+}
+
+.width-200px img{
+	width:200px;
+}
+
+.width-240px img{
+	width:240px;
+}
+
+.width-250px img{
+	width:250px;
+}
+
+.width-280px img{
+	width:280px;
+}
+
+.width-320px img{
+	width:320px;
+}
+
+.highlight {
+    color: #64abcc!important;
+    font-weight: bold!important;
+    margin: 10px 0px!important;
+}
+
+.imgTextWrap-round div {
+    float: left;
+    color: #666;
+    text-align: center;
+    margin: 10px;
+    *vertical-align: bottom;
+}
+
+.imgTextWrap-round img {
+    vertical-align: top;
+	border-radius: 10px; 
+	box-shadow: rgb(229, 229, 229) 1px 1px 1px 0px;
+	padding:0px;
+}
+
+.imgTextWrap-round p{
+	margin:5px 0;
+	font-size:18px;
+}
+
+
+
+
+
+

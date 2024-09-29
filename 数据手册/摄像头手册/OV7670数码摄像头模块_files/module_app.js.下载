@@ -1,0 +1,1505 @@
+//网站头部组件
+Vue.component('header-nav', {
+    'template':
+        '<div class="header_con">' +
+            '<div class="header">' +
+                '<div class="welcome user_link fl">' +
+                    '<a href="/">微雪电子</a>' +
+                    '<span>|</span>' +
+                    '<a href="/joinus.html" target="_blank" onclick="return is_login_link(this)">申请代理</a>' +
+                    '<span>|</span>' +
+                    '<a href="/help_center/how_to_buy.htm">在线订购</a>' +
+                    '<span>|</span>' +
+                    '<a href="/help_center/statement.htm">打假声明</a>' +
+                    '<span>|</span>' +
+                    '<a href="/study">微雪课堂</a>' +
+                    '<span>|</span>' +
+                    '<a href="https://waveshare.cloud/" target="_blank">微雪云</a>' +
+                '</div>' +
+                '<div class="fr">' +
+                    '<div class="login_info fl" v-if="is_login">' +
+                        '欢迎您：<em>{{realname}}</em> ' +
+                        '<a @click="user_exit" class="quit">退出</a>' +
+                    '</div>' +
+                    '<div class="login_btn fl" v-else>' +
+                        '<a :href="login_address">登录</a>' +
+                        '<span>|</span>' +
+                        '<a :href="register_address">注册</a>' +
+                    '</div>' +
+                    '<div class="user_link fl">' +
+                        '<span>|</span>' +
+                        '<a href="/user/info.html" onclick="return is_login_link(this)">用户中心</a>' +
+                        '<span>|</span>' +
+                        '<a href="/user/msg.html" onclick="return is_login_link(this)">' +
+                            '<em class="msg_nav">消息<i :class="msg_class"></i></em>' +
+                        '</a>' +
+                        '<span>|</span>' +
+                        '<a href="/user/order.html" onclick="return is_login_link(this)">我的订单</a>' +
+                        '<div class="cart_nav_box">' +
+                            '<a class="cart_nav_link" href="/cart.html">购物车({{cart_count}})</a>' +
+                            '<div class="cart_nav_goods">' +
+                                '<div class="cart_nav_goods_box">' +
+                                    '<div class="cart_nav_goods_line clearfix" v-if="carts.length" v-for="item in carts">' +
+                                        '<div class="col0 fl">' +
+                                            '<em class="checkbox-style" :class="item.is_select ? \'choice\' : \'\'" @click="checkedOne(item)"></em>' +
+                                        '</div>' +
+                                        '<div class="col1 fl">' +
+                                            '<img :src="item.photo">' +
+                                        '</div>' +
+                                        '<div class="col2 fl">' +
+                                            '<p class="goods_title">{{item.title}}</p>' +
+                                            '<p class="goods_count">' +
+                                                '<em>{{item.sale_price | formatPrice}}</em>' +
+                                                '<em>× {{item.count}}</em>' +
+                                            '</p>' +
+                                        '</div>' +
+                                        '<div class="col3 fl"><a href="javascript:;" @click="do_delete(item.sku_id)">×</a></div>' +
+                                    '</div>' +
+                                '</div>' +
+                                '<div class="cart_nav_no_goods" v-if="!carts.length">' +
+                                    '<p>购物车还没有东西</p>' +
+                                    '<p>把心仪的宝贝添加进来吧</p>' +
+                                '</div>' +
+                                '<div class="cart_nav_goods_calc clearfix">' +
+                                    // '<span class="fl">合计（不含运费） <em>{{total_price | formatPrice}}</em></span>' +
+                                    '<span class="fl">合计（不含运费） <span v-html="formatPriceHtml(total_price)"></span></span>' +
+                                    '<a href="/cart.html" class="btn btn-warn fr">结算</a>' +
+                                '</div>' +
+                            '</div>' +
+                        '</div>' +
+                    '</div>' +
+                '</div>' +
+            '</div>' +
+            '<!-- 右侧导航 & 返回顶部 -->' +
+            '<div class="right-bar">' +
+                '<ul>' +
+                    '<li>' +
+                        '<a href="/user/info.html" onclick="return is_login_link(this)" class="center">' +
+                            '<i></i>' +
+                            '<span>用户中心</span>' +
+                        '</a>' +
+                    '</li>' +
+                    '<li v-if="qq">' +
+                        '<a :href="qq_service_link()" class="service">' +
+                            '<i></i>' +
+                            '<span>在线客服</span>' +
+                        '</a>' +
+                    '</li>' +
+                    '<li>' +
+                        '<a href="/cart.html" target="_blank" class="cart">' +
+                            '<i></i>' +
+                            '<span>购物车</span>' +
+                        '</a>' +
+                    '</li>' +
+                '</ul>' +
+                '<div class="top-box">' +
+                    '<a href="javascript:;" title="回到顶部" class="top"><i></i></a>' +
+                '</div>' +
+            '</div>' +
+        '</div>',
+    data: function() {
+        return {
+            realname: '',
+            token: '',
+            is_login: false,
+
+            login_address: '',
+            register_address: '',
+            msg_class: '',
+            carts: [],
+            cart_count: 0,
+            qq: true,
+            total_price: 0,
+        }
+    },
+    created: function() {
+        // 请求拦截器
+        axios.interceptors.request.use(function(config) {
+            if (config.url) {
+                config.headers['Authorization'] = 'JWT ' + token;
+            }
+            if(config.method === 'get') {
+                if (!config.params) {
+                    config.params = {};
+                }
+                config.params['t'] = (new Date()).getTime();
+            }
+            return config;
+        });
+        // 响应拦截器
+        //axios.interceptors.response.use(function(response) {
+        //   return response;
+        //}, function(error) {
+        //     if (error.response && error.response.status == 401) {
+        //         window.location.href = '/login.html';
+        //     }
+        //    return Promise.reject(error);
+        //});
+    },
+    mounted: function() {
+        this.login_address = '/login.html?next=' + encodeURI(location.href);
+        this.register_address = '/register.html?next=' + encodeURI(location.href);
+
+        if (getCookie('token')) {
+            this.realname = getCookie('realname');
+            this.token = getCookie('token');
+            this.is_login = true;
+        }
+
+        this.get_no_read_num();
+        this.get_service_qq();
+        this.select_cart();
+    },
+    methods: {
+        user_exit: function() {
+            delCookie('token');
+            delCookie('realname');
+            location.reload();
+        },
+        get_no_read_num: function() {
+            if (!token) return false;
+            var self = this;
+
+            axios.get(url_pre + '/messages/count').then(function(response) {
+                self.msg_class = response.data > 0 ? 'no_read' : '';
+            })
+        },
+        select_cart: function() {
+            var self = this;
+
+            axios.get(url_pre + '/cart', {
+                params: {
+                    cart: getCookie('goods_cart')
+                }
+            }).then(function(response) {
+                var cart_list = response.data.sku_list;
+                self.carts = [];
+                self.cart_count = 0;
+                self.total_price = 0
+                for (var i = 0; i < cart_list.length; i++) {
+                    self.carts.push(cart_list[i]);
+                    self.cart_count += cart_list[i].count;
+                    if (cart_list[i]['is_select']) {
+                        self.total_price += cart_list[i].count * self.carts[i].sale_price;
+                    }
+                }
+            })
+        },
+        // 删除购物车
+        do_delete: function(sku_id) {
+            var self = this;
+            axios.delete(url_pre + '/cart', {
+                data: {
+                    cart: getCookie('goods_cart'),
+                    sku_id: sku_id,
+                }
+            }).then(function(response) {
+                setCookie('goods_cart', response.data.cart, cartSaveTime);
+                self.select_cart();
+            })
+        },
+        // 修改购物车
+        change_cart: function(sku_id, is_select, count) {
+            var self = this;
+
+            axios.put(url_pre + '/cart', {
+                cart: getCookie('goods_cart'),
+                sku_id: sku_id,
+                count: count,
+                is_select: is_select,
+            }).then(function(response) {
+                setCookie('goods_cart', response.data.cart, cartSaveTime);
+                self.select_cart();
+            }).catch(function(error) {
+                if (error.response.status === 400) {
+                    self.$refs.msg.alert(error.response.data.message.msg);
+                }
+            })
+        },
+        // 单选框勾选函数
+        checkedOne: function(cart) {
+            this.change_cart(cart.sku_id, !cart.is_select, cart.count);
+        },
+        get_service_qq: function() {
+            var self = this;
+
+            axios.get(url_pre + '/service/qq').then(function(response) {
+                self.qq = response.data;
+            })
+        },
+        qq_service_link: function() {
+            return get_qq_service_link(this.qq);
+        }
+    }
+});
+
+// 网站脚部组件
+Vue.component('footer-link', {
+    'template':
+        '<div class="footer">' +
+            '<div class="footer-desc">' +
+                '<div class="footer-desc-item gxjs"><span><em>高新技术企业</em></span></div>' +
+                '<div class="footer-desc-item stwly"><span><em>7天无理由退货</em></span></div>' +
+                '<div class="footer-desc-item mfbx"><span><em>15天免费保修</em></span></div>' +
+                '<div class="footer-desc-item zyjszc"><span><em>专业技术支持</em></span></div>' +
+            '</div>' +
+            '<div class="footer-help clearfix">' +
+                '<div class="help-list" v-for="(item, i) in help_list" :class="[item.active ? \'active\' : \'\']" @click="choice_help(i)">' +
+                    '<h3>{{item.name}}</h3>' +
+                    '<ul>' +
+                        '<li v-for="help in item.help">' +
+                            '<a :href="help.now_url">{{help.name}}</a>' +
+                        '</li>' +
+                    '</ul>' +
+                '</div>' +
+            '</div>' +
+            '<div class="footer-link-bg">' +
+                '<div class="footer-link clearfix">' +
+                    '<ul class="footer-link1 clearfix">' +
+                        '<li>' +
+                            '<a href="https://www.12377.cn/" target="_blank">' +
+                                '<img class="icon fl" src="/static/images/slices/zghlw.svg">' +
+                                '中国互联网<br>举报中心' +
+                            '</a>' +
+                        '</li>' +
+                        '<li>' +
+                            '<a href="http://www.cyberpolice.cn/wfjb" target="_blank">' +
+                                '<img class="icon fl" src="/static/images/slices/wlbjpt.svg">' +
+                                '网络报<br>警平台' +
+                            '</a>' +
+                        '</li>' +
+                        '<li>' +
+                            '<a href="https://szcert.ebs.org.cn/00054d61-2f31-4c7b-ae4d-f41ec9d85289" target="_blank">' +
+                                '<img class="icon fl" src="/static/images/slices/gsbs.svg">' +
+                                '工商网监<br>电子标识' +
+                            '</a>' +
+                        '</li>' +
+                    '</ul>' +
+                    '<div class="footer-link2">' +
+                        '<p class="footer-line1">' +
+                            '<a href="/static/images/ws-business-license.jpg" target="_blank">营业执照</a> <em>|</em> ' +
+                            '<a href="http://beian.miit.gov.cn/" target="_blank">粤ICP备05067009号</a> <em>|</em> ' +
+                            '<a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=44030402001787" target="_blank">' +
+                                '<!--<img src="/static/images/ghs.png">-->粤公网安备 44030402001787号' +
+                            '</a>' +
+                        '</p>' +
+                        '<p>Copyright © 2005-{{now_year}} 深圳市微雪电子有限公司 版权所有</p>' +
+                    '</div>' +
+                    '<div class="footer-link3">' +
+                        '<a href="https://space.bilibili.com/477406871" class="outer-link bilibili" target="_blank" rel="nofollow"></a>' +
+                        '<a href="javascript:;" class="outer-link weibo">' +
+                            '<div class="outer-link-popup">' +
+                                '<img src="/static/images/slices/weibo_qrcode.png">' +
+                            '</div>' +
+                        '</a>' +
+                    '</div>' +
+                '</div>' +
+            '</div>' +
+        '</div>',
+    data: function() {
+        return {
+            help_list: [],
+            now_year: '2020'
+        }
+    },
+    mounted: function() {
+        this.get_help_list();
+        this.now_year = (new Date()).getFullYear();
+    },
+    updated: function() {
+        document.body.addEventListener('touchstart', function() {});
+
+        $(".search_con .input_text").focus(function() {
+            $(this).closest('.search_con').addClass('search_con_active');
+        }).blur(function() {
+            $(this).closest('.search_con').removeClass('search_con_active');
+        });
+
+        // 若浏览器不支持 placeholder, 自定义模拟 placeholder 效果
+        if (!('placeholder' in document.createElement('input'))) {
+            $(".placeholder-box").each(function() {
+                var inputObj = $(this).find("input,textarea");
+                if (!inputObj.val()) {
+                    $(this).find(".placeholder").show();
+                }
+            });
+            $(".placeholder-box .placeholder").click(function() {
+                $(this).hide();
+                $(this).siblings("input,textarea").focus();
+            });
+            $(".placeholder-box input, .placeholder-box textarea").focus(function() {
+                $(this).siblings(".placeholder").hide();
+            }).blur(function() {
+                if (!$(this).val()) {
+                    $(this).siblings(".placeholder").show();
+                }
+            })
+        }
+    },
+    methods: {
+        get_help_list: function() {
+            var self = this;
+
+            axios.get(url_pre + '/help/footer').then(function(response) {
+                self.help_list = response.data;
+                for (var i=0; i < self.help_list.length; i++) {
+                    self.help_list[i].active = false;
+                }
+            })
+        },
+        choice_help: function(index) {
+            this.help_list[index].active = !this.help_list[index].active
+            for (var i=0; i < this.help_list.length; i++) {
+                if (i != index) {
+                    this.help_list[i].active = false;
+                    this.$set(this.help_list, i, this.help_list[i]);
+                }
+            }
+            console.log(this.help_list)
+        }
+    }
+});
+
+// 顶部广告组件
+Vue.component('top-guanggao', {
+    'template':
+        '<div class="top-guanggao clearfix" v-if="!only_index || is_index">' +
+            '<div class="top-guanggao-cancel"><i>×</i></div>' +
+            '<div class="top-guanggao-content">{{top_ads_content}}</div>' +
+        '</div>',
+    data: function() {
+        return {
+            only_index: true,
+            top_ads_content: ''
+        }
+    },
+    props: ['is_index'],
+    mounted: function() {
+        this.get_top_ads();
+    },
+    methods: {
+        get_top_ads: function() {
+            var self = this;
+
+            axios.get(url_pre + '/settings/index/top-ads').then(function(response) {
+                var setting = response.data;
+                self.top_ads_content = setting.value;
+                self.only_index = setting.extra == 'only_index';
+            })
+        }
+    }
+})
+
+// 移动端底部导航栏组件
+Vue.component('mobile-footer', {
+    'template':
+        '<div class="mobile-footer hide">' +
+            '<div class="ws_desc" v-if="show_ws_desc">' +
+                '<a href="/help_center/about_us.htm">了解微雪</a>' +
+            '</div>' +
+            '<div class="footer-nav-space">&nbsp;</div>' +
+            '<div class="footer-nav">' +
+                '<div class="footer-icon homepage" :class="get_style_class(\'homepage\')"><a href="/">首页</a></div>' +
+                '<div class="footer-icon cart" :class="get_style_class(\'cart\')"><a href="/cart.html">购物车</a></div>' +
+                '<div class="footer-icon service" :class="get_style_class(\'service\')"><a :href="qq_service_link()">在线客服</a></div>' +
+                '<div class="footer-icon center" :class="get_style_class(\'center\')">'+
+                    '<a href="/user/info.html" onclick="return is_login_link(this)">用户中心</a>' +
+                '</div>' +
+            '</div>' +
+        '</div>',
+    props: ['show_ws_desc', 'current_page'],
+    data: function() {
+        return {
+            card_count: 0,
+            qq: '',
+        }
+    },
+    mounted: function() {
+        this.get_service_qq();
+    },
+    methods: {
+        get_service_qq: function() {
+            var self = this;
+
+            axios.get(url_pre + '/service/qq').then(function(response) {
+                self.qq = response.data;
+            })
+        },
+        get_style_class: function(page) {
+            return this.current_page == page ? 'active' : '';
+        },
+        qq_service_link: function() {
+            return get_qq_service_link(this.qq);
+        }
+    }
+})
+
+// 导航栏组件
+Vue.component('nav-list', {
+    'template':
+        '<ul class="navlist fl">' +
+            '<li class="nav_search_box">' +
+                '<em class="search_icon" @click="show_search_popup=true"></em>' +
+                '<div class="search_popup" v-show="show_search_popup">' +
+                    '<div class="search_popup_top_bg">' +
+                        '<div class="search_popup_top clearfix">' +
+                            '<form @submit.prevent="check_search_pw" class="search_popup_form clearfix" :class="focus_search ? \'focus\' : \'\'">' +
+                                '<div class="search_popup_input">' +
+                                    '<input type="text" v-model="kw" autocomplete="off" @focus="focus_search=true" @blur="focus_search=false" />' +
+                                '</div>' +
+                                '<div class="search_popup_submit">' +
+                                    '<input type="submit" value="" />' +
+                                '</div>' +
+                            '</form>' +
+                            '<div class="search_popup_cancel">' +
+                                '<em class="delete_icon" @click="show_search_popup=false">&nbsp;</em>' +
+                            '</div>' +
+                        '</div>'+
+                    '</div>' +
+                    '<div class="search_popup_hot_bg">' +
+                        '<div class="search_popup_hot">' +
+                            '<div class="hot_title hot_word">热门搜索</div>' +
+                            '<div class="hot_word" v-for="item in hot_search_words">' +
+                                '<a :href="\'/search.html?kw=\' + item.keyword">{{item.keyword}}</a>' +
+                            '</div>' +
+                        '</div>' +
+                    '</div>' +
+                '</div>' +
+            '</li>' +
+            '<li class="nav-category" v-show="!show_cat" @mouseover="on_mouse()" @mouseout="out_mouse()">' +
+                '<a href="javascript:;" class="all_category">' +
+                    '<i @click="show_category"></i><span>分类</span>' +
+                '</a>' +
+                '<div>' +
+                    '<ul class="sub_menu" v-show="show_sub_menu">' +
+                        '<li v-for="level1 in categories">' +
+                            '<div class="level1">' +
+                                '<a :href="cat_link_url(level1)" :title="level1.name">{{ level1.name }}</a>' +
+                            '</div>' +
+                            '<div class="level2 clearfix" v-if="level1.subs">' +
+                                '<div class="list_group" v-for="level2 in level1.subs">' +
+                                    '<div class="group_name" :class="[level2.subs ? \'has_child\' : \'\']">' +
+                                        '<a :href="cat_link_url(level2)" :title="level2.name">{{ level2.name }}</a>' +
+                                    '</div>' +
+                                    '<div class="group_detail" v-if="level2.subs">' +
+                                        '<div class="level3" v-for="level3 in level2.subs">' +
+                                            '<a :href="cat_link_url(level3)">{{ level3.name }}</a>' +
+                                        '</div>' +
+                                    '</div>' +
+                                '</div>' +
+                            '</div>' +
+                        '</li>' +
+                    '</ul>' +
+
+                    '<div class="sub_menu_bg" v-show="show_sub_menu_mini" @click="show_sub_menu_mini=false"></div>' +
+                    '<ul class="sub_menu_mini" v-show="show_sub_menu_mini">' +
+                        '<li v-for="(level1, level1_i) in categories" :class="show_active_class(level1.is_active)">' +
+                            '<div class="level1" @click="choice_level1(level1_i)">' +
+                                '<a :href="cat_link_url(level1)" :title="level1.name">{{ level1.name }}</a>' +
+                            '</div>' +
+                            '<div class="level2 clearfix" v-if="level1.subs">' +
+                                '<div class="list_group" v-for="(level2, level2_i) in level1.subs" :class="show_active_class(level2.is_active)">' +
+                                    '<div class="group_name" :class="[level2.subs ? \'has_child\' : \'\']" @click="choice_level2(level1_i, level2_i)">' +
+                                        '<a :href="cat_link_url(level2)" :title="level2.name">{{ level2.name }}</a>' +
+                                    '</div>' +
+                                    '<div class="group_detail" v-if="level2.subs">' +
+                                        '<div class="level3" v-for="level3 in level2.subs">' +
+                                            '<a :href="cat_link_url(level3)">{{ level3.name }}</a>' +
+                                        '</div>' +
+                                    '</div>' +
+                                '</div>' +
+                            '</div>' +
+                        '</li>' +
+                        '<li class="other_sub_menu">' +
+                            '<div class="other_sub_menu_line force_hide">' +
+                                '<a href="https://www.klayers.cn/">SMT加工</a>' +
+                            '</div>' +
+                            '<div class="other_sub_menu_line">' +
+                                '<a href="/left_column/new.htm">新品上市</a>' +
+                            '</div>' +
+                            '<div class="other_sub_menu_line">' +
+                                '<a href="/wiki">产品资料</a>' +
+                            '</div>' +
+                            '<div class="other_sub_menu_line">' +
+                                '<a href="/study">微雪课堂</a>' +
+                            '</div>' +
+                            '<div class="other_sub_menu_line">' +
+                                '<a href="/cattree.html">产品目录</a>' +
+                            '</div>' +
+                            '<div class="other_sub_menu_line">' +
+                                '<a href="/help_center/contact.htm">联系我们</a>' +
+                            '</div>' +
+                        '</li>' +
+                    '</ul>' +
+                '</div>' +
+            '</li>' +
+            '<li class="nav-link">' +
+                '<div class="nav-link-item nav-new force_hide">' +
+                    '<a href="https://www.klayers.cn/" target="_blank">SMT加工</a>' +
+                    '<img src="/static/images/slices/new.svg">' +
+                '</div>' +
+                '<div class="nav-link-item">' +
+                    '<a :href="link_url(item)" v-for="item in nav_goods" target="_blank">{{item.name}}</a>' +
+                '</div>' +
+            '</li>' +
+        '</ul>',
+    props: ['show_cat'],
+    data: function() {
+        return {
+            kw: '',
+            nav_goods: '',
+            categories: [],
+            hot_search_words: [],
+            show_sub_menu: false,
+            show_sub_menu_mini: false,
+            focus_search: false,
+            show_search_popup: false,
+        }
+    },
+    mounted: function() {
+        this.get_nav_goods();
+        this.get_categories();
+        this.get_hot_search_words();
+    },
+    methods: {
+        get_nav_goods: function() {
+            var self = this;
+
+            axios.get(url_pre + '/goods/nav').then(function(response) {
+                self.nav_goods = response.data;
+            })
+        },
+        get_hot_search_words: function() {
+            var self = this;
+
+            axios.get(url_pre + '/search/hot/words').then(function(response) {
+                self.hot_search_words = response.data;
+            })
+        },
+        link_url: function(item) {
+            return item.url || 'javascript:;';
+        },
+        get_categories: function() {
+            var self = this;
+
+            axios.get(url_pre + '/category').then(function(response) {
+                self.categories = response.data;
+
+                if (self.$root.$refs.category_link) {
+                    self.$root.$refs.category_link.categories = response.data;
+                }
+            })
+        },
+        cat_link_url: function(cat) {
+            return cat.path_url ? cat.path_url : '/list.html?cat=' + cat.id;
+        },
+        check_search_pw: function() {
+            location.href = "/search.html?kw=" + (this.kw || '树莓派');
+        },
+        on_mouse: function() {
+            if (document.body.clientWidth < 1024) {
+                return
+            }
+            this.show_sub_menu = true;
+        },
+        out_mouse: function() {
+            if (document.body.clientWidth < 1024) {
+                return
+            }
+            this.show_sub_menu = false;
+        },
+        show_category: function() {
+            if (document.body.clientWidth >= 1024) {
+                return
+            }
+            this.show_sub_menu_mini = !this.show_sub_menu_mini;
+        },
+        show_active_class: function(is_active) {
+            return is_active ? 'active' : '';
+        },
+        choice_level1: function(level1_i) {
+            var is_active = this.categories[level1_i].is_active
+            for (var i=0; i < this.categories.length; i++) {
+                this.categories[i].is_active = false;
+                this.$set(this.categories, i, this.categories[i]);
+            }
+
+            this.categories[level1_i].is_active = !is_active;
+            this.$set(this.categories, level1_i, this.categories[level1_i]);
+        },
+        choice_level2: function(level1_i, level2_i) {
+            var is_active = this.categories[level1_i].subs[level2_i].is_active;
+            this.categories[level1_i].subs[level2_i].is_active = !is_active;
+            this.$set(this.categories, level1_i, this.categories[level1_i]);
+        }
+    }
+});
+
+// 搜索框组件
+Vue.component('search', {
+    'template':
+        '<div class="search_wrap fr">' +
+            '<div class="search_con">' +
+                '<form @submit.prevent="check_search_pw">' +
+                    '<div class="placeholder-box">' +
+                        '<input type="text" class="input_text fl" v-model="kw" :placeholder="placeholder">' +
+                    '</div>' +
+                    '<div class="input_btn_box">' +
+                        '<input type="submit" class="input_btn fr" value="">' +
+                        '<em class=""></em>' +
+                    '</div>' +
+                '</form>' +
+            '</div>' +
+        '</div>',
+    data: function() {
+        return {
+            kw: '',
+            placeholder: '搜索商品'
+        }
+    },
+    mounted: function() {
+        this.kw = getParameter('kw');
+    },
+    methods: {
+        //搜索链接
+        check_search_pw: function() {
+            location.href = "/search.html?kw=" + (this.kw || '树莓派');
+        },
+    }
+});
+
+// 商品规格选择器
+Vue.component('spec-selector', {
+    'template':
+        '<div class="selector">' +
+            '<div class="sl_wrap clearfix" v-for="(spec, index) in sel_list"' +
+            ':class="[spec.multi ? \'multi\' : \'extend\']">' +
+                '<div class="sl_key">{{spec.spec_name}}</div>' +
+                '<div class="sl_val">' +
+                    '<div class="sl_list">' +
+                        '<ul class="clearfix">' +
+                            '<li :class="[multi_list.indexOf(option.id) != -1 ? \'selected\' : \'\']" v-for="option in spec.options">' +
+                                '<a :class="shaixuan_class(option,spec)" :href="select_opt(option.id, spec.id)" @click="choose_multi($event,option,spec)">' +
+                                    '<i class="checkout-choose"></i><span>{{option.name}}</span>' +
+                                '</a>' +
+                            '</li>' +
+                        '</ul>' +
+                        '<div class="sl_btns" v-if="spec.multi">' +
+                            '<a class="btn btn-cancel" @click="cancel_multi(index)">取消</a>' +
+                            '<a class="btn btn-confirm" @click="submit_multi(spec.id)">确定</a>' +
+                        '</div>' +
+                    '</div>' +
+                    '<div class="multi_btn">' +
+                        '<a href="javascript:;" class="sl_multi" @click="sel_multi(index)" v-if="!spec.multi && spec.options.length > 1">' +
+                            '<i></i>多选' +
+                        '</a>' +
+                    '</div>' +
+                '</div>' +
+            '</div>' +
+            '<div class="all_sel_btn" v-show="is_mobile_device">' +
+                '<a class="btn btn-cancel" @click="reset_shaixuan">重置</a>' +
+                '<a class="btn btn-confirm" @click="submit_shaixuan">确定</a>' +
+            '</div>' +
+        '</div>',
+    data: function() {
+        return {
+            category_id: '',
+            sid: '',
+            sid2: '',
+            sel_list: [],
+            multi_list: [],
+            is_mobile_device: false,
+            shaixuan_arr: [],
+        }
+    },
+    mounted: function() {
+        this.category_id = getParameter('cat') || this.category_id;
+        this.sid = getParameter('sid') ? atob(getParameter('sid')) : this.sid;
+        this.sid2 = getParameter('sid2') ? atob(getParameter('sid2')) : this.sid2;
+        this.is_mobile_device = is_mobile_device();
+        this.get_shaixuan_arr();
+    },
+    methods: {
+        // 查询条件
+        select_opt: function(opt_id, spec_id) {
+            var sid = this.sid ? this.sid + '|' + opt_id : opt_id;
+            var sid2 = String(this.sid2 ? this.sid2 + ',' + spec_id : spec_id);
+            return this.generate_select_url(sid, sid2);
+        },
+        // 生成筛选链接
+        generate_select_url: function(sid, sid2, pno=1) {
+            var params = {'sid': btoa(sid), 'sid2': btoa(sid2), 'pno': pno};
+            return generate_url(params);
+        },
+        cancel_sel: function(opt_id, spec_id) {
+            var sid_list = this.sid.split('|');
+            var i = sid_list.indexOf(String(opt_id));
+            if (i !== -1) {
+                sid_list.splice(i, 1);
+            }
+            var sid = sid_list.join('|');
+
+            var sid2_list = this.sid2.split(',');
+            var j = sid2_list.indexOf(String(spec_id));
+            if (j !== -1) {
+                sid2_list.splice(i, 1);
+            }
+            var sid2 = sid2_list.join(',');
+
+            var params = {'sid': btoa(sid), 'sid2': btoa(sid2), 'pno': 1};
+            return generate_url(params);
+        },
+        // 多选
+        sel_multi: function(index) {
+            this.multi_list = [];
+            for (var i=0; i < this.sel_list.length; i++) {
+                this.sel_list[i].multi = false;
+                this.$set(this.sel_list, i, this.sel_list[i]);
+            }
+            this.sel_list[index].multi = true;
+            this.$set(this.sel_list, index, this.sel_list[index]);
+        },
+        choose_multi: function(evt, option, spec) {
+            if (this.is_mobile_device) {
+                // 如果是移动设备 宽度小于1024px
+                evt.preventDefault();
+                var is_exists = false;
+                var spec_id = String(spec.id);
+                if (!this.shaixuan_arr[spec_id]) {
+                    this.shaixuan_arr[spec_id] = [option.id];
+                } else {
+                    var index = this.shaixuan_arr[spec_id].indexOf(option.id);
+                    if (index == -1) {
+                        this.shaixuan_arr[spec_id].push(option.id)
+                    } else {
+                        this.shaixuan_arr[spec_id].splice(index, 1);
+                    }
+                }
+
+                this.$set(this.shaixuan_arr, spec_id, this.shaixuan_arr[spec_id]);
+            } else if (spec.multi) {
+                // 如果是多选
+                evt.preventDefault();
+                var index = this.multi_list.indexOf(option.id);
+                if (index === -1) {
+                    this.multi_list.push(option.id);
+                } else {
+                    this.multi_list.splice(index, 1);
+                }
+            }
+        },
+        // 确定多选
+        submit_multi: function(spec_id) {
+            if (this.multi_list.length) {
+                var opt_id = this.multi_list.sort(function(a, b) {
+                    return Number(a) - Number(b);
+                }).join(',');
+                window.location.href = this.select_opt(opt_id, spec_id)
+            }
+        },
+        // 取消多选
+        cancel_multi: function(index) {
+            this.sel_list[index].multi = false;
+            this.$set(this.sel_list, index, this.sel_list[index]);
+            this.multi_list = [];
+        },
+        // 筛选的样式
+        shaixuan_class: function(option,spec) {
+            if (!this.shaixuan_arr[spec.id]) {
+                return '';
+            }
+
+            return this.shaixuan_arr[spec.id].indexOf(option.id) == -1 ? '' : 'choice'
+        },
+        // 根据sid和sid2获取shaixuan_arr
+        get_shaixuan_arr: function() {
+            if (!this.sid || !this.sid2) {
+                return;
+            }
+
+            var sid_list = this.sid.split('|');
+            var sid2_list = this.sid2.split(',');
+            var option_ids = []
+
+            for (var i = 0; i < sid_list.length; i++) {
+                this.shaixuan_arr[sid2_list[i]] = []
+                option_ids = sid_list[i].split(',');
+                for (var j = 0; j < option_ids.length; j++) {
+                    this.shaixuan_arr[sid2_list[i]].push(option_ids[j])
+                }
+            }
+        },
+        // 筛选确定
+        submit_shaixuan: function() {
+            if (!this.shaixuan_arr.length) {
+                window.location.href = '/list.html?cat=' + this.category_id;
+                return
+            }
+
+            var spec_ids = [];
+            var option_ids = [];
+            for (var spec_id in this.shaixuan_arr) {
+                spec_ids.push(spec_id);
+                option_ids.push(this.shaixuan_arr[spec_id].sort(function(a, b) {
+                    return Number(a) - Number(b);
+                }).join(','));
+            }
+
+            var sid = option_ids.join('|');
+            var sid2 = spec_ids.join(',');
+            window.location.href = this.generate_select_url(sid, sid2);
+        },
+        // 筛选重置
+        reset_shaixuan: function() {
+            this.shaixuan_arr = [];
+        }
+    }
+});
+
+// 商品分类组件
+Vue.component('category', {
+    'template':
+        '<div class="navbar_con">' +
+            '<div class="navbar">' +
+                '<div class="sub_menu_con fl">' +
+                    '<h1 class="fl">商品分类</h1>' +
+                    '<ul class="sub_menu">' +
+                        '<li v-for="level1 in categories">' +
+                            '<div class="level1">' +
+                                '<a :href="link_url(level1)" :title="level1.name">{{ level1.name }}</a>' +
+                            '</div>' +
+                            '<div class="level2 clearfix" v-if="level1.subs">' +
+                                '<div class="list_group" v-for="level2 in level1.subs">' +
+                                    '<div class="group_name" :class="[level2.subs ? \'has_child\' : \'\']">' +
+                                        '<a :href="link_url(level2)" :title="level2.name">{{ level2.name }}</a>' +
+                                    '</div>' +
+                                    '<div class="group_detail" v-if="level2.subs">' +
+                                        '<div class="level3" v-for="level3 in level2.subs">' +
+                                            '<a :href="link_url(level3)">{{ level3.name }}</a>' +
+                                        '</div>' +
+                                    '</div>' +
+                                '</div>' +
+                            '</div>' +
+                        '</li>' +
+                    '</ul>' +
+                '</div>' +
+            '</div>' +
+        '</div>',
+    data: function() {
+        return {
+            categories: '',
+            nav_goods: '',
+        }
+    },
+    mounted: function() {
+        this.get_categories();
+    },
+    updated: function() {
+        setCatHover();
+    },
+    methods: {
+        get_categories: function() {
+            var self = this;
+
+            axios.get(url_pre + '/category').then(function(response) {
+                self.categories = response.data;
+                if (self.$root.$refs.category_link) {
+                    self.$root.$refs.category_link.categories = response.data;
+                }
+            })
+        },
+        link_url: function(cat) {
+            return cat.path_url ? cat.path_url : '/list.html?cat=' + cat.id;
+        }
+    }
+});
+
+//分类级联组件
+Vue.component('category-link', {
+    'template':
+        '<div class="breadcrumb">' +
+            '<a href="/">首页</a>' +
+            '<label v-for="item in cascade">' +
+                '<span> > </span>' +
+                '<a :href="item.path_url" v-if="item.path_url">{{item.name}}</a>' +
+                '<a :href="[\'/list.html?cat=\' + item.category_id]" v-else>{{item.name}}</a>' +
+            '</label>' +
+            '<label v-show="cho_list.length > 0 && !is_mobile_device">' +
+                '<span> ></span>' +
+                '<a :href="item.url" class="sl_crumb" v-for="item in cho_list">' +
+                    '<span>{{item.spec_name}}：</span><em>{{item.value}}</em><i></i>' +
+                '</a>' +
+            '</label>' +
+        '</div>',
+    data: function() {
+        return {
+            category_id: 0,
+            categories: '',
+            cascade: [],
+            cho_list: [],
+            is_mobile_device: false,
+        }
+    },
+    watch:{
+        categories: function() {
+            this.cascade_cats(this.category_id);
+        },
+        category_id: function() {
+            this.cascade_cats(this.category_id);
+        },
+    },
+    mounted: function() {
+        this.is_mobile_device = document.body.clientWidth < 1024;
+    },
+    methods: {
+        cascade_cats: function(category_id) {
+            var cascade = [];
+            (function recurse(cats){
+                for (var i = 0; i < cats.length; i++) {
+                    if (cats[i].id == category_id) {
+                        cascade.push({
+                            category_id: cats[i].id,
+                            code: cats[i].code,
+                            name: cats[i].name,
+                            path_url: cats[i].path_url
+                        });
+                        return true;
+                    }
+
+                    if (!cats[i].subs) {
+                        continue;
+                    }
+
+                    if (recurse(cats[i].subs)) {
+                        cascade.push({
+                            category_id: cats[i].id,
+                            code: cats[i].code,
+                            name: cats[i].name,
+                            path_url: cats[i].path_url
+                        });
+                        return true;
+                    }
+                }
+            })(this.categories);
+            this.cascade = cascade.reverse()
+        }
+    }
+});
+
+// 个人中心左边导航栏
+Vue.component('user-center-nav', {
+    'template':
+        '<div class="left_menu_con clearfix">' +
+            '<ul>' +
+                '<li><a href="/user/info.html" :class="[active == \'info\' ? \'active\' : \'\']">个人信息</a></li>' +
+                '<li class="my_order"><a href="/user/order.html" :class="[active == \'order\' ? \'active\' : \'\']">我的订单</a></li>' +
+                '<li><a href="/user/favorite.html" :class="[active == \'favorite\' ? \'active\' : \'\']">收藏夹</a></li>' +
+                '<li><a href="/user/site.html" :class="[active == \'site\' ? \'active\' : \'\']">收货地址</a></li>' +
+                '<li><a href="/user/msg.html" :class="[active == \'msg\' ? \'active\' : \'\']">通知<em v-if="no_read_num"></em></a></li>' +
+                '<li v-if="is_agent"><a href="/user/price.html" :class="[active == \'price\' ? \'active\' : \'\']">价格更新</a></li>' +
+            '</ul>' +
+        '</div>',
+    props: ['active'],
+    data: function() {
+        return {
+            is_agent: false,
+            no_read_num: ''
+        }
+    },
+    mounted: function() {
+        this.get_user_info();
+        this.get_no_read_num();
+    },
+    methods: {
+        get_user_info: function() {
+            var self = this;
+
+            axios.get(url_pre + '/agent').then(function(response) {
+                self.is_agent = Boolean(response.data.user.level_name);
+            })
+        },
+        get_no_read_num: function() {
+            if (!token) return false;
+            var self = this;
+
+            axios.get(url_pre + '/messages/count').then(function(response) {
+                self.no_read_num = response.data || '';
+            })
+        },
+    }
+});
+
+// 编辑地址组件
+Vue.component('address-edit', {
+    'template':
+        '<dl class="get_site">' +
+            '<message ref="msg"></message>' +
+            '<dd class="dd" v-for="item in address_list" :class="[item.address_id == $root.addr_id ? \'select-current\' : \'\']" @click="$root.addr_id=item.address_id">' +
+                '<div class="site_title">' +
+                    '<span>{{item.receiver}}</span>' +
+                    '<em>|</em>' +
+                    '<span>{{item.mobile}}</span>' +
+                '</div>' +
+                '<div class="site_info">' +
+                    '<span>{{item.place}}</span>' +
+                '</div>' +
+                '<em class="default" v-if="item.is_default">默认</em>' +
+                '<a @click="default_address(item.address_id)" v-if="!item.is_default" class="blue_link set_default">设为默认</a>' +
+                '<a @click="edit_address(item.address_id)" class="blue_link edit_site"></a>' +
+                '<a @click="del_address(item.address_id)" class="blue_link del_site"></a>' +
+            '</dd>' +
+
+            '<dd class="dd add_site" @click="show_box">' +
+                '<span>+ 添加新地址</span>' +
+            '</dd>' +
+
+            '<div class="bg" v-if="bg_show"></div>' +
+            '<div class="popup-box edit_site_box" v-if="is_show_edit">' +
+                '<span class="cancel" @click="cancel"></span>' +
+                '<div class="txt-box">' +
+                    '<h2 class="popup-title">收货地址</h2>' +
+                    '<p>' +
+                        '<label><em class="red_color">*</em> 收货人</label>' +
+                        '<input type="text" class="txt_input" v-model="addr.first_name" v-if="country == \'中国\'">' +
+                        '<span v-else>' +
+                            '<input type="text" class="txt_input short" placeholder="first name" v-model="addr.first_name">' +
+                            '<input type="text" class="txt_input short" placeholder="last name" v-model="addr.last_name">' +
+                        '</span>' +
+                    '</p>' +
+                    '<p>' +
+                        '<label><em class="red_color">*</em> 所在国家</label>' +
+                        '<select class="txt_select middle" v-model="country">' +
+                            '<option v-for="item in country_list" :value="item.name">{{item.name}}</option>' +
+                        '</select>' +
+                    '</p>' +
+                    '<p v-if="country == \'中国\'">' +
+                        '<label><em class="red_color">*</em> 所在地区</label>' +
+                        '<select class="txt_select" v-model="province">' +
+                            '<option value="">请选择</option>' +
+                            '<option v-for="item in province_list" :value="item.name">{{item.name}}</option>' +
+                        '</select>' +
+                        '<select class="txt_select ml10" v-model="city">' +
+                            '<option value="">请选择</option>' +
+                            '<option v-for="item in city_list" :value="item.name">{{item.name}}</option>' +
+                        '</select>' +
+                        '<select class="txt_select ml10" v-model="district">' +
+                            '<option value="">请选择</option>' +
+                            '<option v-for="item in district_list" :value="item.name">{{item.name}}</option>' +
+                        '</select>' +
+                    '</p>' +
+                    '<p>' +
+                        '<label><em class="red_color">*</em> 详细地址</label>' +
+                        '<input type="text" class="txt_input" v-model="addr.place">' +
+                    '</p>' +
+                    '<p>' +
+                        '<label><em class="red_color">*</em> 手机号</label>' +
+                        '<input type="text" placeholder="为方便联系，请仔细填写手机号" class="txt_input" v-model="addr.mobile" @blur="check_mobile_len">' +
+                    '</p>' +
+                    '<p>' +
+                        '<label>固定电话</label>' +
+                        '<input type="text" class="txt_input" v-model="addr.telephone">' +
+                    '</p>' +
+                    '<p>' +
+                        '<label>邮箱</label>' +
+                        '<input type="text" class="txt_input" v-model="addr.email">' +
+                    '</p>' +
+                    '<p>' +
+                        '<label>邮编</label>' +
+                        '<input type="text" class="txt_input" v-model="addr.zip_code">' +
+                    '</p>' +
+                    '<p v-if="show_idcard()">' +
+                        '<label>收货人身份证</label>' +
+                        '<input type="text" class="txt_input" v-model="addr.idcard">' +
+                    '</p>' +
+                    '<p v-if="show_idcard()">' +
+                        '<label>公司信息</label>' +
+                        '<input type="text" placeholder="格式：公司名称+公司统一编码" class="txt_input" v-model="addr.company_code">' +
+                    '</p>' +
+                '</div>' +
+                '<div class="btn-box">' +
+                    '<a class="btn btn-cancel" @click="cancel">取消</a>' +
+                    '<a class="btn btn-confirm" @click="on_submit">保存</a>' +
+                '</div>' +
+            '</div>' +
+        '</dl>',
+    data: function() {
+        return {
+            bg_show: false,
+            is_show_edit: false,
+            country_list: [],
+            country: '中国',
+            province_list: [],
+            province: '',
+            city_list: [],
+            city: '',
+            district_list: [],
+            district: '',
+
+            addr: {},
+            address_list: [],
+        }
+    },
+    created: function() {
+        this.get_address();
+        this.get_country();
+        this.get_province();
+    },
+    watch: {
+         // 修改省份
+        province: function(newVal) {
+            if (!newVal) {
+                this.city_list = [];
+                this.city = '';
+                return;
+            }
+
+            // 城市列表
+            for (var i=0; i<this.province_list.length; i++) {
+                if (this.province_list[i].name == newVal) {
+                    this.city_list = this.province_list[i].subs;
+                    break;
+                }
+            }
+
+            // 城市
+            var index = -1;
+            for (var i=0; i < this.city_list.length; i++) {
+                if (this.city_list[i].name == this.addr.city) {
+                    index = i;
+                    break;
+                }
+            }
+            this.city = index == -1 ? '' : this.city_list[index].name;
+        },
+        // 修改城市
+        city: function(newVal) {
+            if (!newVal) {
+                this.district_list = [];
+                this.district = '';
+                return;
+            }
+
+            // 地区列表
+            for (var i=0; i<this.city_list.length; i++) {
+                if (this.city_list[i].name == newVal) {
+                    this.district_list = this.city_list[i].subs;
+                    break;
+                }
+            }
+
+            // 地区
+            var index = -1;
+            for (var i=0; i < this.district_list.length; i++) {
+                if (this.district_list[i].name == this.addr.district) {
+                    index = i;
+                    break
+                }
+            }
+            this.district = index == -1 ? '' : this.district_list[index].name;
+        }
+    },
+    methods: {
+        check_mobile_len: function() {
+//            if(this.country == '中国' && this.addr.mobile && this.addr.mobile.length != 11) {
+//                this.$refs.msg.alert('手机号非11位，请检查！如果填写的是境外手机号码，请继续！');
+//            }
+        },
+        show_mobile: function(mobile) {
+            
+        },
+        show_idcard: function() {
+            return this.province && this.province.indexOf('台湾') == 0
+        },
+        // 获取国家列表
+        get_country: function() {
+            var self = this;
+
+            axios.get('/static/json/area/country.json').then(function(response) {
+                self.country_list = response.data;
+            })
+        },
+        // 获取省市区
+        get_province: function() {
+            var self = this;
+
+            axios.get('/static/json/area/area.json').then(function(response) {
+                self.province_list = response.data;
+                self.province = '';
+                self.city = '';
+                self.district = '';
+            })
+        },
+        //查看地址
+        get_address: function() {
+            var self = this;
+
+            axios.get(url_pre + '/address').then(function(response) {
+                self.address_list = response.data;
+                self.$root.address_count = self.address_list.length;
+            })
+        },
+        //设置默认地址
+        default_address: function(address_id) {
+            var self = this;
+
+            axios.put(url_pre + '/address/default/' + address_id).then(function(response) {
+                self.get_address();
+            })
+        },
+        //删除地址
+        del_address: function(address_id) {
+            var self = this;
+
+            this.$refs.msg.ask('确定删除？', function() {
+                axios.delete(url_pre + '/address/' + address_id).then(function(response) {
+                    self.get_address();
+                })
+            })
+        },
+        //编辑地址
+        edit_address: function(address_id) {
+            var self = this;
+
+            axios.get(url_pre + '/address/' + address_id).then(function(response) {
+                self.addr = response.data;
+                self.addr.address_id = address_id;
+                self.country = self.addr.country;
+                self.province = self.addr.province;
+                self.city = self.addr.city;
+                self.district = self.addr.district;
+
+                self.show_box();
+            })
+        },
+        show_box: function() {
+            this.bg_show = true;
+            this.is_show_edit = true;
+        },
+        cancel: function() {
+            this.addr = {};
+            this.country = '中国';
+            this.province = '';
+            this.city = '';
+            this.district = '';
+            this.bg_show = false;
+            this.is_show_edit = false;
+        },
+        //提交信息
+        on_submit: function() {
+            var self = this;
+            var addr = this.addr;
+
+            // 台湾地区要提供，个人身份证or公司统编
+            if (self.show_idcard() && !addr.idcard && !addr.company_code) {
+                self.$refs.msg.alert('台湾地区要提供，收货人身份证or公司信息');
+                return
+            }
+
+            var params = {
+                country: this.country,
+                first_name: addr.first_name,
+                place: addr.place,
+                mobile: addr.mobile,
+                telephone: addr.telephone,
+                email: addr.email,
+                zip_code: addr.zip_code,
+                idcard: addr.idcard,
+                company_code: addr.company_code,
+            };
+            if (this.country == '中国') {
+                params.province = this.province;
+                params.city = this.city || '';
+                params.district = this.district || '';
+            } else {
+                params.last_name = addr.last_name;
+            }
+
+            var url =  url_pre + '/address';
+            var do_ajax = axios.post;
+            if (addr.address_id) {
+                url += '/' + this.addr.address_id;
+                do_ajax = axios.put;
+            }
+
+            do_ajax(url, params).then(function(response) {
+                self.$refs.msg.alert('恭喜你，操作成功', function() {
+                    self.cancel();
+                    self.get_address();
+                    if (self.$root.addr_id == addr.address_id && typeof self.$root.upd_addr == 'number') {
+                        self.$root.upd_addr++;
+                    }
+                });
+            }).catch(function(error) {
+                if (error.response && error.response.status == 400) {
+                    var tips = '';
+                    for (key in error.response.data.message) {
+                        tips += error.response.data.message[key];
+                    }
+                    self.$refs.msg.alert(tips);
+                }
+            })
+        },
+    }
+});
+
+// 记录访问信息组件
+Vue.component('record-visit', {
+    'template': '<div></div>',
+    mounted: function() {
+        if (!is_fresh) {
+            axios.post(url_pre + '/record/page', {
+                prev_url: document.referrer,
+            })
+        }
+    }
+});
+
+// 收不到验证码
+Vue.component('verify-code-tips', {
+    'template': 
+        '<div>' +
+            '<div class="bg" v-if="bg_show" @click="cancel"></div>' +
+            '<div class="popup-box verify_code_tips" v-if="tips_show">' +
+                '<span class="cancel" @click="cancel"></span>' +
+                '<div class="txt-box">' +
+                    '<h2 class="popup-title">收不到验证码</h2>' +
+                    '<div class="verify_code_tips_box">' +
+                        '<div class="line">' +
+                            '<div>1、手机号不再使用</div>' +
+                            '<div>如果您已经不再使用该手机号，请更换其他验证方式</div>' +
+                        '</div>' +
+                        '<div class="line">' +
+                            '<div>2、网络延迟</div>' +
+                            '<div>网络可能存在延迟，请稍等一会或重新获取验证码。</div>' +
+                        '</div>' +
+                        '<div class="line">' +
+                            '<div>3、运营商屏蔽</div>' +
+                            '<div>如果退订或者向运营商投诉过此类通知短信，使得包含验证码的短信被运营商屏蔽，请拨打运营商电话咨询。</div>' +
+                        '</div>' +
+                        '<div class="line">' +
+                            '<div>4、短信次数限制</div>' +
+                            '<div>为避免短信骚扰及资源浪费，每个手机号每天最多发送10条短信，超过此条数，则无法再收到系统发送的短信。您可以改日再试。</div>' +
+                        '</div>' +
+                        '<div class="line">' +
+                            '<div>5、短信黑名单</div>' +
+                            '<div>您可能曾经把此类短信加入了黑名单，因此无法收到验证码，您可以从黑名单中移除后重新尝试。</div>' +
+                        '</div>' +
+                    '</div>' +
+                '</div>' +
+            '</div>' +
+        '</div>',
+    data: function() {
+        return {
+            bg_show: false,
+            tips_show: false,
+        }
+    },
+    methods: {
+        show: function() {
+            this.tips_show = true;
+            this.bg_show = true;
+        },
+        cancel: function() {
+            this.tips_show = false;
+            this.bg_show = false;
+        }
+    }
+});
+
+// 提示框
+Vue.component('message', {
+    'template':
+        '<div>' +
+            '<div class="bg bg-msg" v-if="bg_show" @click="cancel_click"></div>' +
+            '<div class="popup-box message" v-if="box_show">' +
+                '<span class="cancel" @click="cancel_click"></span>' +
+                '<div class="txt-box">' +
+                    '<h2 class="popup-title">提示</h2>' +
+                    '<p class="msg-content" v-html="msg"></p>' +
+                
+                    '<div class="btn-box">' +
+                        '<a class="btn btn-cancel" @click="cancel_click" v-if="cancel_btn_show">取消</a>' +
+                        '<a class="btn btn-confirm" @click="confirm_click" v-if="confirm_btn_show">确定</a>' +
+                    '</div>' +
+                '</div>' +
+            '</div>' +
+            '<div class="msg-info" v-if="info_show">' +
+                '<p v-html="msg"></p>' +
+            '</div>' +
+        '</div>',
+    data: function() {
+        return {
+            msg: '',
+
+            box_show: false,
+            info_show: false,
+            bg_show: false,
+            cancel_btn_show: false,
+            confirm_btn_show: false,
+
+            callback: null,
+            timer: null
+        }
+    },
+    methods: {
+        // 警告框
+        alert: function(msg, callback) {
+            this.cancel_click();
+            this.msg = msg;
+            this.bg_show = true;
+            this.box_show = true;
+            this.confirm_btn_show = true;
+            this.callback = callback;
+        },
+        // 询问框
+        ask: function(msg, callback) {
+            this.cancel_click();
+            this.msg = msg;
+            this.bg_show = true;
+            this.box_show = true;
+            this.cancel_btn_show = true;
+            this.confirm_btn_show = true;
+            this.callback = callback;
+        },
+        // 消息提示框
+        info: function(msg, time) {
+            var self = this;
+
+            if (!time) time = 2;
+            this.cancel_click();
+            this.msg = msg;
+            this.info_show = true;
+            this.timer = setTimeout(function() {
+                self.cancel_click();
+            }, time * 1000);
+        },
+        // 确认
+        confirm_click: function() {
+            this.cancel_click();
+            if (typeof this.callback == 'function') {
+                this.callback();
+                this.callback = null;
+            }
+        },
+        // 取消
+        cancel_click: function() {
+            this.box_show = false;
+            this.info_show = false;
+            this.bg_show = false;
+            this.cancel_btn_show = false;
+            this.confirm_btn_show = false;
+        }
+    }
+});
+
+
+
+
+
+
+
+
+
+
+
+

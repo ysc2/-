@@ -1,0 +1,81 @@
+/* 把标签默认的间距设为0 */
+body,ul,p,h1,h2,h3,h4,h5,h6,dl,dd,select,input,textarea,form{margin:0;padding:0;font-size:14px;}
+body {color: #666;font-family:"PingFang SC, Microsoft YaHei, 微软雅黑", sans-serif;}
+body,html {height: 100%}
+input, textarea {
+    border-radius: 0;
+}
+
+/* 让h标签文字大小继承body的文字设置 */
+h1,h2,h3,h4,h5,h6{font-weight:normal;}
+
+/* 去掉列表默认的图标 */
+ul{list-style:none;}
+
+/* 去掉em默认的斜体 */
+em, i{font-style: normal;}
+
+/* 去掉a标签默认的下划线 */
+a{text-decoration:none;color: #666666;cursor:pointer;}
+
+
+/* 去掉加链接时产生的框线 */
+img{border:0;width:auto;height:auto;}
+
+/* 清除浮动 */
+.clearfix:before,.clearfix:after{content:"";display:table}
+.clearfix:after{clear:both;}
+.clearfix{zoom:1}
+
+.hide{display:none;}
+.force_hide{display:none !important;}
+
+/* 浮动 */
+.fl{float:left}
+.fr{float:right}
+
+.ml5{margin-left:5px;}
+.ml10{margin-left:10px;}
+.ml15{margin-left:15px;}
+.ml20{margin-left:20px;}
+.ml84{margin-left:84px;}
+.mr10{margin-right:10px;}
+.mt10{margin-top:10px;}
+.mb10{margin-bottom:10px;}
+.mr20{margin-right:20px;}
+.mt20{margin-top:20px}
+.mt30{margin-top:30px}
+.mt40{margin-top:40px}
+.mtlf20{margin:20px 20px 0px;}
+.tc{text-align:center;}
+.tr{text-align:right;}
+.tl{text-align:left;}
+.size14{font-size:14px !important;}
+.ib{display:inline-block;}
+.pr{position:relative}
+.width200{width: 200px;}
+
+.white_bg{background:#fff !important;}
+.green_bg{background:#f1f8f3 !important;}
+.red_color{color:#FF0036 !important;}
+.grey_color{color:#B0B0B0 !important;}
+.grey_border{border:1px solid #ddd;}
+.green_color{color:#5EAC39;}
+
+.bottom_border{border-bottom: 1px solid #e6e6e6;}
+.hengxian{display:block;border-top: 1px solid #e6e6e6;}
+
+.delete_icon {
+	display: block;
+	background: url(../images/slices/cancel.svg) -14px -14px;
+	width: 20px;
+	height: 20px;
+}
+
+.example-image-link {
+    display: block;
+}
+
+[v-cloak] {display: none}
+
+

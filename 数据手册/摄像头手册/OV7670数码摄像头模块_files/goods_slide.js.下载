@@ -1,0 +1,174 @@
+$(function() {
+    var nowImage = $(".goods_detail_pic .big_image img");
+    var cloudZoom = $(".cloud-zoom");
+    var ulObj = $(".goods_detail_pic .goods_slide ul");
+    var liObj = $(".goods_detail_pic .goods_slide ul li");
+    var prev = $(".goods_prev a");
+    var next = $(".goods_next a");
+
+    var liWidth = liObj.width();
+    var ulWidth = liObj.length * liWidth;
+    var slideWidth = 5 * liWidth;
+    // ulObj.css('width', ulWidth);
+
+    // 当前图片
+    now_index(nowImage.attr("now-index"));
+
+    // 选择图片
+    $(".goods_detail_pic .goods_slide img").click(function() {
+        nowImage.attr("now-index", $(this).attr("index"));
+        nowImage.attr("src", $(this).attr("src-big"));
+        // cloudZoom.attr("href", $(this).attr("src-big"));
+        now_index($(this).attr("index"));
+        exit_video();
+    });
+
+    // 向左滑动
+    prev.click(function() {
+        if (ulWidth > slideWidth) {
+            var pos = parseInt(ulObj.css("left"));
+            var move = pos + slideWidth >= 0 ? 0 : pos + slideWidth;
+            ulObj.animate({"left": move}, 500);
+        }
+    });
+
+    // 向右滑动
+    next.click(function() {
+        if (ulWidth > slideWidth) {
+            var pos = parseInt(ulObj.css("left"));
+            var move = ulWidth + pos >= 2 * slideWidth ? pos - slideWidth : slideWidth - ulWidth;
+            ulObj.animate({"left": move}, 500);
+        }
+    });
+
+    // 播放视频
+    $(".play-video-btn").click(function() {
+        $("#goods-photo").hide();
+        $("#goods-video").show();
+        var myPlayer = videojs('my-video');
+        videojs('my-video').ready(function() {
+            var myPlayer = this;
+            myPlayer.play();
+        })
+    });
+
+    // 退出视频
+    $(".exit-video-btn").click(function() {
+        exit_video();
+    });
+
+    // 当前图片索引
+    function now_index(index){
+        ulObj.find("li img").css({"border": "1px solid #ccc", "margin": "1px"});
+        ulObj.find("li img[index='" + index + "']").css({"border": "2px solid #2887c7", "margin": "0"});
+    }
+
+    // 退出视频播放
+    function exit_video() {
+        if($("#goods-video").attr("data-video")) {
+            $("#goods-photo").show();
+            $("#goods-video").hide();
+            var myPlayer = videojs('my-video');
+            videojs('my-video').ready(function() {
+                var myPlayer = this;
+                myPlayer.pause();
+            })
+        }
+    }
+
+    // 关联商品滑动
+    var relLiObj = $(".rel_goods_list li");
+    var relLiWidth = relLiObj.width() + 20;
+    var relUlObj = $(".rel_goods_list");
+    var relUlWidth = relLiWidth * relLiObj.length;
+    var relSlideWidth = relLiWidth * 5;
+    relUlObj.css("width", relUlWidth);
+    $(".rel_goods .scroll-btn").click(function() {
+        if (relUlWidth <= relSlideWidth) {
+            return false;
+        }
+
+        var pos = parseInt(relUlObj.css("left"));
+        if ($(this).hasClass('prev-btn')) {
+            var move = pos + relSlideWidth >= 0 ? 0 : pos + relSlideWidth;
+        } else if($(this).hasClass('next-btn')) {
+            var move = relUlWidth + pos >= 2 * relSlideWidth ? pos - relSlideWidth : relSlideWidth - relUlWidth;
+        }
+
+        relUlObj.animate({"left": move}, 500);
+    });
+
+    // 商品详情、包装信息切换
+    $('.detail_tab li').click(function(){
+        $(this).addClass('active').siblings().removeClass('active');
+        var i = $(this).index();
+        $('.detail_content .content_tab:eq(' + i + ')').show();
+        $('.detail_content .content_tab:not(:eq(' + i + '))').hide();
+        if ($(this).closest('.is_fixed').length > 0) {
+            var scrollTop = $('.detail_content').offset().top;
+            $('html,body').animate({'scrollTop': scrollTop}, 0);
+        }
+    });
+
+    // $('.detail_tab ul li').click(function() {
+    //     var i = $(this).index();
+    //     if (i === 0) {
+    //         $('.content_tab').show();
+    //     } else {
+    //         $('.content_tab:eq(' + i + ')').show();
+    //         $('.content_tab:not(:eq(' + i + '))').hide();
+    //     }
+    //
+    //     if ($(this).closest('.is_fixed').length > 0) {
+    //         var scrollTop = $('.detail_content').offset().top;
+    //         $('html,body').animate({'scrollTop': scrollTop}, 0);
+    //     }
+    // });
+
+    // 页面滚动事件
+    $(document).scroll(function() {
+        var dObj = $(".detail_box");
+        var divTop = dObj.offset().top;
+        var scrollTop = $(this).scrollTop();
+
+        // if (divTop <= scrollTop && document.body.clientWidth >= 1024) {
+        if (divTop <= scrollTop) {
+            dObj.addClass('is_fixed');
+        } else {
+            dObj.removeClass('is_fixed');
+        }
+    })
+
+    // 选择税率
+    /*$(".cho-tax").hover(function() {
+        var do_class_name = 'do-choose';
+        var now_class_name = $(this).closest('.cho-tax').attr('class');
+        if (now_class_name.indexOf(do_class_name) != -1) {
+            $(this).closest('.cho-tax').removeClass(do_class_name)
+        } else {
+            $(this).closest('.cho-tax').addClass(do_class_name)
+        }
+    })*/
+
+    // 点击查看大图
+    $("#goods-photo img").click(function() {
+        var image_url = $("#goods-photo img").attr("src");
+        $(".big-box-image").attr("src", image_url);
+        $(".big-box").show();
+    })
+
+    // 隐藏大图
+    $(".big-box-bg").click(function() {
+        $(".big-box").hide();
+    })
+
+    // 隐藏顶部提示
+    $(".good-top-tips-cancel i").click(function() {
+		$(".good-top-tips").hide();
+	})
+});
+
+
+
+
+
